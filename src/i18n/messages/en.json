@@ -41,6 +41,7 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "name": "Name",
+    "fullName": "Full Name",
     "signupTitle": "Create Account",
     "signinTitle": "Sign In to Your Account",
     "signinSubtitle": "Sign in to your TaskFlow account",
@@ -48,7 +49,10 @@
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
     "welcomeBack": "Welcome Back",
-    "minCharacters": "Must be at least 8 characters"
+    "minCharacters": "Must be at least 8 characters",
+    "createAccount": "Create Account",
+    "invalidCredentials": "Invalid email or password",
+    "accountCreated": "Account created successfully! You will be redirected to login."
   },
   "dashboard": {
     "projects": "Projects",

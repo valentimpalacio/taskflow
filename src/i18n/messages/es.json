@@ -41,6 +41,7 @@
     "password": "Contraseña",
     "confirmPassword": "Confirmar contraseña",
     "name": "Nombre",
+    "fullName": "Nombre Completo",
     "signupTitle": "Crear cuenta",
     "signinTitle": "Iniciar sesión en tu cuenta",
     "signinSubtitle": "Inicia sesión en tu cuenta TaskFlow",
@@ -48,7 +49,10 @@
     "noAccount": "¿No tienes una cuenta?",
     "haveAccount": "¿Ya tienes una cuenta?",
     "welcomeBack": "Bienvenido de Nuevo",
-    "minCharacters": "Debe tener al menos 8 caracteres"
+    "minCharacters": "Debe tener al menos 8 caracteres",
+    "createAccount": "Crear cuenta",
+    "invalidCredentials": "Correo electrónico o contraseña inválidos",
+    "accountCreated": "¡Cuenta creada exitosamente! Serás redirigido al inicio de sesión."
   },
   "dashboard": {
     "projects": "Proyectos",
