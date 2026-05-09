@@ -30,6 +30,10 @@ export type ProjectMinAggregateOutputType = {
   description: string | null
   userId: string | null
   createdAt: Date | null
+  updatedAt: Date | null
+  isPublic: boolean | null
+  isTemplate: boolean | null
+  templateName: string | null
 }
 
 export type ProjectMaxAggregateOutputType = {
@@ -38,6 +42,10 @@ export type ProjectMaxAggregateOutputType = {
   description: string | null
   userId: string | null
   createdAt: Date | null
+  updatedAt: Date | null
+  isPublic: boolean | null
+  isTemplate: boolean | null
+  templateName: string | null
 }
 
 export type ProjectCountAggregateOutputType = {
@@ -46,6 +54,10 @@ export type ProjectCountAggregateOutputType = {
   description: number
   userId: number
   createdAt: number
+  updatedAt: number
+  isPublic: number
+  isTemplate: number
+  templateName: number
   _all: number
 }
 
@@ -56,6 +68,10 @@ export type ProjectMinAggregateInputType = {
   description?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
+  isPublic?: true
+  isTemplate?: true
+  templateName?: true
 }
 
 export type ProjectMaxAggregateInputType = {
@@ -64,6 +80,10 @@ export type ProjectMaxAggregateInputType = {
   description?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
+  isPublic?: true
+  isTemplate?: true
+  templateName?: true
 }
 
 export type ProjectCountAggregateInputType = {
@@ -72,6 +92,10 @@ export type ProjectCountAggregateInputType = {
   description?: true
   userId?: true
   createdAt?: true
+  updatedAt?: true
+  isPublic?: true
+  isTemplate?: true
+  templateName?: true
   _all?: true
 }
 
@@ -153,6 +177,10 @@ export type ProjectGroupByOutputType = {
   description: string | null
   userId: string
   createdAt: Date
+  updatedAt: Date
+  isPublic: boolean
+  isTemplate: boolean
+  templateName: string | null
   _count: ProjectCountAggregateOutputType | null
   _min: ProjectMinAggregateOutputType | null
   _max: ProjectMaxAggregateOutputType | null
@@ -182,8 +210,15 @@ export type ProjectWhereInput = {
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  isPublic?: Prisma.BoolFilter<"Project"> | boolean
+  isTemplate?: Prisma.BoolFilter<"Project"> | boolean
+  templateName?: Prisma.StringNullableFilter<"Project"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   tasks?: Prisma.TaskListRelationFilter
+  comments?: Prisma.CommentListRelationFilter
+  projectAccess?: Prisma.ProjectAccessListRelationFilter
+  webhooks?: Prisma.WebhookListRelationFilter
 }
 
 export type ProjectOrderByWithRelationInput = {
@@ -192,8 +227,15 @@ export type ProjectOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  isTemplate?: Prisma.SortOrder
+  templateName?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   tasks?: Prisma.TaskOrderByRelationAggregateInput
+  comments?: Prisma.CommentOrderByRelationAggregateInput
+  projectAccess?: Prisma.ProjectAccessOrderByRelationAggregateInput
+  webhooks?: Prisma.WebhookOrderByRelationAggregateInput
 }
 
 export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -205,8 +247,15 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  isPublic?: Prisma.BoolFilter<"Project"> | boolean
+  isTemplate?: Prisma.BoolFilter<"Project"> | boolean
+  templateName?: Prisma.StringNullableFilter<"Project"> | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   tasks?: Prisma.TaskListRelationFilter
+  comments?: Prisma.CommentListRelationFilter
+  projectAccess?: Prisma.ProjectAccessListRelationFilter
+  webhooks?: Prisma.WebhookListRelationFilter
 }, "id">
 
 export type ProjectOrderByWithAggregationInput = {
@@ -215,6 +264,10 @@ export type ProjectOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  isTemplate?: Prisma.SortOrder
+  templateName?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
   _max?: Prisma.ProjectMaxOrderByAggregateInput
   _min?: Prisma.ProjectMinOrderByAggregateInput
@@ -229,6 +282,10 @@ export type ProjectScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   userId?: Prisma.StringWithAggregatesFilter<"Project"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
+  isPublic?: Prisma.BoolWithAggregatesFilter<"Project"> | boolean
+  isTemplate?: Prisma.BoolWithAggregatesFilter<"Project"> | boolean
+  templateName?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
 }
 
 export type ProjectCreateInput = {
@@ -236,8 +293,15 @@ export type ProjectCreateInput = {
   name: string
   description?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
   user: Prisma.UserCreateNestedOneWithoutProjectsInput
   tasks?: Prisma.TaskCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateInput = {
@@ -246,7 +310,14 @@ export type ProjectUncheckedCreateInput = {
   description?: string | null
   userId: string
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
   tasks?: Prisma.TaskUncheckedCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessUncheckedCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUpdateInput = {
@@ -254,8 +325,15 @@ export type ProjectUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
   tasks?: Prisma.TaskUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateInput = {
@@ -264,7 +342,14 @@ export type ProjectUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.TaskUncheckedUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUncheckedUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyInput = {
@@ -273,6 +358,10 @@ export type ProjectCreateManyInput = {
   description?: string | null
   userId: string
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
 }
 
 export type ProjectUpdateManyMutationInput = {
@@ -280,6 +369,10 @@ export type ProjectUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProjectUncheckedUpdateManyInput = {
@@ -288,6 +381,10 @@ export type ProjectUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProjectListRelationFilter = {
@@ -306,6 +403,10 @@ export type ProjectCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  isTemplate?: Prisma.SortOrder
+  templateName?: Prisma.SortOrder
 }
 
 export type ProjectMaxOrderByAggregateInput = {
@@ -314,6 +415,10 @@ export type ProjectMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  isTemplate?: Prisma.SortOrder
+  templateName?: Prisma.SortOrder
 }
 
 export type ProjectMinOrderByAggregateInput = {
@@ -322,11 +427,20 @@ export type ProjectMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  isPublic?: Prisma.SortOrder
+  isTemplate?: Prisma.SortOrder
+  templateName?: Prisma.SortOrder
 }
 
 export type ProjectScalarRelationFilter = {
   is?: Prisma.ProjectWhereInput
   isNot?: Prisma.ProjectWhereInput
+}
+
+export type ProjectNullableScalarRelationFilter = {
+  is?: Prisma.ProjectWhereInput | null
+  isNot?: Prisma.ProjectWhereInput | null
 }
 
 export type ProjectCreateNestedManyWithoutUserInput = {
@@ -371,6 +485,10 @@ export type ProjectUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.ProjectScalarWhereInput | Prisma.ProjectScalarWhereInput[]
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 export type ProjectCreateNestedOneWithoutTasksInput = {
   create?: Prisma.XOR<Prisma.ProjectCreateWithoutTasksInput, Prisma.ProjectUncheckedCreateWithoutTasksInput>
   connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutTasksInput
@@ -385,12 +503,63 @@ export type ProjectUpdateOneRequiredWithoutTasksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutTasksInput, Prisma.ProjectUpdateWithoutTasksInput>, Prisma.ProjectUncheckedUpdateWithoutTasksInput>
 }
 
+export type ProjectCreateNestedOneWithoutCommentsInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutCommentsInput, Prisma.ProjectUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutCommentsInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneWithoutCommentsNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutCommentsInput, Prisma.ProjectUncheckedCreateWithoutCommentsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutCommentsInput
+  upsert?: Prisma.ProjectUpsertWithoutCommentsInput
+  disconnect?: Prisma.ProjectWhereInput | boolean
+  delete?: Prisma.ProjectWhereInput | boolean
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutCommentsInput, Prisma.ProjectUpdateWithoutCommentsInput>, Prisma.ProjectUncheckedUpdateWithoutCommentsInput>
+}
+
+export type ProjectCreateNestedOneWithoutProjectAccessInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutProjectAccessInput, Prisma.ProjectUncheckedCreateWithoutProjectAccessInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutProjectAccessInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutProjectAccessNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutProjectAccessInput, Prisma.ProjectUncheckedCreateWithoutProjectAccessInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutProjectAccessInput
+  upsert?: Prisma.ProjectUpsertWithoutProjectAccessInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutProjectAccessInput, Prisma.ProjectUpdateWithoutProjectAccessInput>, Prisma.ProjectUncheckedUpdateWithoutProjectAccessInput>
+}
+
+export type ProjectCreateNestedOneWithoutWebhooksInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutWebhooksInput, Prisma.ProjectUncheckedCreateWithoutWebhooksInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutWebhooksInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutWebhooksNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutWebhooksInput, Prisma.ProjectUncheckedCreateWithoutWebhooksInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutWebhooksInput
+  upsert?: Prisma.ProjectUpsertWithoutWebhooksInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutWebhooksInput, Prisma.ProjectUpdateWithoutWebhooksInput>, Prisma.ProjectUncheckedUpdateWithoutWebhooksInput>
+}
+
 export type ProjectCreateWithoutUserInput = {
   id?: string
   name: string
   description?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
   tasks?: Prisma.TaskCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutUserInput = {
@@ -398,7 +567,14 @@ export type ProjectUncheckedCreateWithoutUserInput = {
   name: string
   description?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
   tasks?: Prisma.TaskUncheckedCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessUncheckedCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutUserInput = {
@@ -408,6 +584,7 @@ export type ProjectCreateOrConnectWithoutUserInput = {
 
 export type ProjectCreateManyUserInputEnvelope = {
   data: Prisma.ProjectCreateManyUserInput | Prisma.ProjectCreateManyUserInput[]
+  skipDuplicates?: boolean
 }
 
 export type ProjectUpsertWithWhereUniqueWithoutUserInput = {
@@ -435,6 +612,10 @@ export type ProjectScalarWhereInput = {
   description?: Prisma.StringNullableFilter<"Project"> | string | null
   userId?: Prisma.StringFilter<"Project"> | string
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  isPublic?: Prisma.BoolFilter<"Project"> | boolean
+  isTemplate?: Prisma.BoolFilter<"Project"> | boolean
+  templateName?: Prisma.StringNullableFilter<"Project"> | string | null
 }
 
 export type ProjectCreateWithoutTasksInput = {
@@ -442,7 +623,14 @@ export type ProjectCreateWithoutTasksInput = {
   name: string
   description?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
   user: Prisma.UserCreateNestedOneWithoutProjectsInput
+  comments?: Prisma.CommentCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutTasksInput = {
@@ -451,6 +639,13 @@ export type ProjectUncheckedCreateWithoutTasksInput = {
   description?: string | null
   userId: string
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessUncheckedCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutTasksInput = {
@@ -474,7 +669,14 @@ export type ProjectUpdateWithoutTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutTasksInput = {
@@ -483,6 +685,241 @@ export type ProjectUncheckedUpdateWithoutTasksInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUncheckedUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutCommentsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  user: Prisma.UserCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.TaskCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutCommentsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  tasks?: Prisma.TaskUncheckedCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessUncheckedCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutCommentsInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutCommentsInput, Prisma.ProjectUncheckedCreateWithoutCommentsInput>
+}
+
+export type ProjectUpsertWithoutCommentsInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutCommentsInput, Prisma.ProjectUncheckedUpdateWithoutCommentsInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutCommentsInput, Prisma.ProjectUncheckedCreateWithoutCommentsInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutCommentsInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutCommentsInput, Prisma.ProjectUncheckedUpdateWithoutCommentsInput>
+}
+
+export type ProjectUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.TaskUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutCommentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.TaskUncheckedUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUncheckedUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutProjectAccessInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  user: Prisma.UserCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.TaskCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutProjectAccessInput = {
+  id?: string
+  name: string
+  description?: string | null
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  tasks?: Prisma.TaskUncheckedCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutProjectInput
+  webhooks?: Prisma.WebhookUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutProjectAccessInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutProjectAccessInput, Prisma.ProjectUncheckedCreateWithoutProjectAccessInput>
+}
+
+export type ProjectUpsertWithoutProjectAccessInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutProjectAccessInput, Prisma.ProjectUncheckedUpdateWithoutProjectAccessInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutProjectAccessInput, Prisma.ProjectUncheckedCreateWithoutProjectAccessInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutProjectAccessInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutProjectAccessInput, Prisma.ProjectUncheckedUpdateWithoutProjectAccessInput>
+}
+
+export type ProjectUpdateWithoutProjectAccessInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.TaskUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutProjectAccessInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.TaskUncheckedUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutWebhooksInput = {
+  id?: string
+  name: string
+  description?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  user: Prisma.UserCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.TaskCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutWebhooksInput = {
+  id?: string
+  name: string
+  description?: string | null
+  userId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
+  tasks?: Prisma.TaskUncheckedCreateNestedManyWithoutProjectInput
+  comments?: Prisma.CommentUncheckedCreateNestedManyWithoutProjectInput
+  projectAccess?: Prisma.ProjectAccessUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutWebhooksInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutWebhooksInput, Prisma.ProjectUncheckedCreateWithoutWebhooksInput>
+}
+
+export type ProjectUpsertWithoutWebhooksInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutWebhooksInput, Prisma.ProjectUncheckedUpdateWithoutWebhooksInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutWebhooksInput, Prisma.ProjectUncheckedCreateWithoutWebhooksInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutWebhooksInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutWebhooksInput, Prisma.ProjectUncheckedUpdateWithoutWebhooksInput>
+}
+
+export type ProjectUpdateWithoutWebhooksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.TaskUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutWebhooksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.TaskUncheckedUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyUserInput = {
@@ -490,6 +927,10 @@ export type ProjectCreateManyUserInput = {
   name: string
   description?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: string | null
 }
 
 export type ProjectUpdateWithoutUserInput = {
@@ -497,7 +938,14 @@ export type ProjectUpdateWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.TaskUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutUserInput = {
@@ -505,7 +953,14 @@ export type ProjectUncheckedUpdateWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.TaskUncheckedUpdateManyWithoutProjectNestedInput
+  comments?: Prisma.CommentUncheckedUpdateManyWithoutProjectNestedInput
+  projectAccess?: Prisma.ProjectAccessUncheckedUpdateManyWithoutProjectNestedInput
+  webhooks?: Prisma.WebhookUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateManyWithoutUserInput = {
@@ -513,6 +968,10 @@ export type ProjectUncheckedUpdateManyWithoutUserInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isPublic?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTemplate?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  templateName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -522,10 +981,16 @@ export type ProjectUncheckedUpdateManyWithoutUserInput = {
 
 export type ProjectCountOutputType = {
   tasks: number
+  comments: number
+  projectAccess: number
+  webhooks: number
 }
 
 export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tasks?: boolean | ProjectCountOutputTypeCountTasksArgs
+  comments?: boolean | ProjectCountOutputTypeCountCommentsArgs
+  projectAccess?: boolean | ProjectCountOutputTypeCountProjectAccessArgs
+  webhooks?: boolean | ProjectCountOutputTypeCountWebhooksArgs
 }
 
 /**
@@ -545,6 +1010,27 @@ export type ProjectCountOutputTypeCountTasksArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.TaskWhereInput
 }
 
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountCommentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CommentWhereInput
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountProjectAccessArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProjectAccessWhereInput
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountWebhooksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WebhookWhereInput
+}
+
 
 export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -552,8 +1038,15 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   description?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   tasks?: boolean | Prisma.Project$tasksArgs<ExtArgs>
+  comments?: boolean | Prisma.Project$commentsArgs<ExtArgs>
+  projectAccess?: boolean | Prisma.Project$projectAccessArgs<ExtArgs>
+  webhooks?: boolean | Prisma.Project$webhooksArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -563,6 +1056,10 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   description?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -572,6 +1069,10 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   description?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -581,12 +1082,19 @@ export type ProjectSelectScalar = {
   description?: boolean
   userId?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
+  isPublic?: boolean
+  isTemplate?: boolean
+  templateName?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "userId" | "createdAt", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "userId" | "createdAt" | "updatedAt" | "isPublic" | "isTemplate" | "templateName", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   tasks?: boolean | Prisma.Project$tasksArgs<ExtArgs>
+  comments?: boolean | Prisma.Project$commentsArgs<ExtArgs>
+  projectAccess?: boolean | Prisma.Project$projectAccessArgs<ExtArgs>
+  webhooks?: boolean | Prisma.Project$webhooksArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -601,6 +1109,9 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
     tasks: Prisma.$TaskPayload<ExtArgs>[]
+    comments: Prisma.$CommentPayload<ExtArgs>[]
+    projectAccess: Prisma.$ProjectAccessPayload<ExtArgs>[]
+    webhooks: Prisma.$WebhookPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -608,6 +1119,10 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     description: string | null
     userId: string
     createdAt: Date
+    updatedAt: Date
+    isPublic: boolean
+    isTemplate: boolean
+    templateName: string | null
   }, ExtArgs["result"]["project"]>
   composites: {}
 }
@@ -1004,6 +1519,9 @@ export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   tasks<T extends Prisma.Project$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  comments<T extends Prisma.Project$commentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  projectAccess<T extends Prisma.Project$projectAccessArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectAccessArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectAccessPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  webhooks<T extends Prisma.Project$webhooksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$webhooksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WebhookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1038,6 +1556,10 @@ export interface ProjectFieldRefs {
   readonly description: Prisma.FieldRef<"Project", 'String'>
   readonly userId: Prisma.FieldRef<"Project", 'String'>
   readonly createdAt: Prisma.FieldRef<"Project", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Project", 'DateTime'>
+  readonly isPublic: Prisma.FieldRef<"Project", 'Boolean'>
+  readonly isTemplate: Prisma.FieldRef<"Project", 'Boolean'>
+  readonly templateName: Prisma.FieldRef<"Project", 'String'>
 }
     
 
@@ -1272,6 +1794,7 @@ export type ProjectCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * The data used to create many Projects.
    */
   data: Prisma.ProjectCreateManyInput | Prisma.ProjectCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1290,6 +1813,7 @@ export type ProjectCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many Projects.
    */
   data: Prisma.ProjectCreateManyInput | Prisma.ProjectCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */
@@ -1458,6 +1982,78 @@ export type Project$tasksArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[]
+}
+
+/**
+ * Project.comments
+ */
+export type Project$commentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Comment
+   */
+  select?: Prisma.CommentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Comment
+   */
+  omit?: Prisma.CommentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CommentInclude<ExtArgs> | null
+  where?: Prisma.CommentWhereInput
+  orderBy?: Prisma.CommentOrderByWithRelationInput | Prisma.CommentOrderByWithRelationInput[]
+  cursor?: Prisma.CommentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CommentScalarFieldEnum | Prisma.CommentScalarFieldEnum[]
+}
+
+/**
+ * Project.projectAccess
+ */
+export type Project$projectAccessArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProjectAccess
+   */
+  select?: Prisma.ProjectAccessSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProjectAccess
+   */
+  omit?: Prisma.ProjectAccessOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectAccessInclude<ExtArgs> | null
+  where?: Prisma.ProjectAccessWhereInput
+  orderBy?: Prisma.ProjectAccessOrderByWithRelationInput | Prisma.ProjectAccessOrderByWithRelationInput[]
+  cursor?: Prisma.ProjectAccessWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProjectAccessScalarFieldEnum | Prisma.ProjectAccessScalarFieldEnum[]
+}
+
+/**
+ * Project.webhooks
+ */
+export type Project$webhooksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Webhook
+   */
+  select?: Prisma.WebhookSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Webhook
+   */
+  omit?: Prisma.WebhookOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WebhookInclude<ExtArgs> | null
+  where?: Prisma.WebhookWhereInput
+  orderBy?: Prisma.WebhookOrderByWithRelationInput | Prisma.WebhookOrderByWithRelationInput[]
+  cursor?: Prisma.WebhookWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WebhookScalarFieldEnum | Prisma.WebhookScalarFieldEnum[]
 }
 
 /**

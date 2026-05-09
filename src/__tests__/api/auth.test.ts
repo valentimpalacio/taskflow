@@ -1,28 +1,49 @@
 import { describe, it, expect, beforeEach, vi } from '@jest/globals';
-import { NextRequest } from 'next/server';
 import { POST } from '@/app/api/auth/signup/route';
 
-// Mock all dependencies
-vi.mock('@/lib/prisma');
-vi.mock('@/lib/rate-limit');
+vi.mock('@/lib/prisma', () => ({
+  prisma: {
+    user: {
+      findUnique: vi.fn(),
+      create: vi.fn(),
+    },
+  },
+}));
+
+vi.mock('@/lib/rate-limit', () => ({
+  checkRateLimit: vi.fn().mockResolvedValue({
+    allowed: true,
+    remaining: 4,
+    resetTime: Date.now() + 900000,
+  }),
+}));
+
+vi.mock('next-auth', () => ({
+  getServerSession: vi.fn(),
+}));
+
+const mockRequest = (body: Record<string, unknown>) => {
+  return new Request('http://localhost/api/auth/signup', {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: { 'content-type': 'application/json' },
+  });
+};
 
 describe('Auth API Routes', () => {
   describe('POST /api/auth/signup', () => {
-    const mockRequest = (body: any) => {
-      return {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'content-type': 'application/json',
-        },
-      } as NextRequest;
-    };
-
     beforeEach(() => {
       vi.clearAllMocks();
+      const { checkRateLimit } = require('@/lib/rate-limit');
+      checkRateLimit.mockResolvedValue({
+        allowed: true,
+        remaining: 4,
+        resetTime: Date.now() + 900000,
+      });
     });
 
     it('should create a new user with valid data', async () => {
+      const { prisma } = require('@/lib/prisma');
       const mockUser = {
         id: 'test-id',
         email: 'test@test.com',
@@ -30,8 +51,8 @@ describe('Auth API Routes', () => {
         password: 'hashed-password',
       };
 
-      (prisma.user.findUnique as vi.Mock).mockResolvedValue(null);
-      (prisma.user.create as vi.Mock).mockResolvedValue(mockUser);
+      prisma.user.findUnique.mockResolvedValue(null);
+      prisma.user.create.mockResolvedValue(mockUser);
 
       const request = mockRequest({
         email: 'test@test.com',
@@ -39,7 +60,7 @@ describe('Auth API Routes', () => {
         name: 'Test User',
       });
 
-      const response = await POST(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(201);
       const data = await response.json();
@@ -53,7 +74,7 @@ describe('Auth API Routes', () => {
         password: 'Strong@123',
       });
 
-      const response = await POST(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(400);
       const data = await response.json();
@@ -66,7 +87,7 @@ describe('Auth API Routes', () => {
         password: 'weak',
       });
 
-      const response = await POST(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(400);
       const data = await response.json();
@@ -74,21 +95,18 @@ describe('Auth API Routes', () => {
     });
 
     it('should return 409 for existing user', async () => {
-      const mockUser = {
+      const { prisma } = require('@/lib/prisma');
+      prisma.user.findUnique.mockResolvedValue({
         id: 'existing-id',
         email: 'existing@test.com',
-        name: 'Existing User',
-        password: 'hashed-password',
-      };
-
-      (prisma.user.findUnique as vi.Mock).mockResolvedValue(mockUser);
+      });
 
       const request = mockRequest({
         email: 'existing@test.com',
         password: 'Strong@123',
       });
 
-      const response = await POST(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(409);
       const data = await response.json();
@@ -96,22 +114,18 @@ describe('Auth API Routes', () => {
     });
 
     it('should return 429 when rate limit exceeded', async () => {
-      // Mock rate limit check to return not allowed
-      vi.mock('@/lib/rate-limit', () => ({
-        checkRateLimit: vi.fn().mockResolvedValue({
-          allowed: false,
-          retryAfter: 30,
-        }),
-      }));
+      const { checkRateLimit } = require('@/lib/rate-limit');
+      checkRateLimit.mockResolvedValue({
+        allowed: false,
+        retryAfter: 30,
+      });
 
-      const { POST: POSTWithRateLimit } = await import('@/app/api/auth/signup/route');
-      
       const request = mockRequest({
         email: 'test@test.com',
         password: 'Strong@123',
       });
 
-      const response = await POSTWithRateLimit(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(429);
       const data = await response.json();
@@ -119,14 +133,15 @@ describe('Auth API Routes', () => {
     });
 
     it('should return 500 for server errors', async () => {
-      (prisma.user.findUnique as vi.Mock).mockRejectedValue(new Error('Database error'));
+      const { prisma } = require('@/lib/prisma');
+      prisma.user.findUnique.mockRejectedValue(new Error('Database error'));
 
       const request = mockRequest({
         email: 'test@test.com',
         password: 'Strong@123',
       });
 
-      const response = await POST(request);
+      const response = await POST(request as unknown as Request);
 
       expect(response.status).toBe(500);
       const data = await response.json();

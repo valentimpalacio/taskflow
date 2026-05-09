@@ -29,3 +29,11 @@ EXPOSE 3000
 ENV PORT=3000 HOSTNAME="0.0.0.0"
 
 CMD ["node", "server.js"]
+
+# Development stage
+FROM base AS dev
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+ENV HOST=0.0.0.0 PORT=3000
+CMD ["npm", "run", "dev"]

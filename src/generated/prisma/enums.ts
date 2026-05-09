@@ -9,7 +9,42 @@
 * 🟢 You can import this file directly.
 */
 
+export const Priority = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH'
+} as const
+
+export type Priority = (typeof Priority)[keyof typeof Priority]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const DependencyType = {
+  FINISH_TO_START: 'FINISH_TO_START',
+  START_TO_START: 'START_TO_START',
+  FINISH_TO_FINISH: 'FINISH_TO_FINISH',
+  START_TO_FINISH: 'START_TO_FINISH'
+} as const
+
+export type DependencyType = (typeof DependencyType)[keyof typeof DependencyType]
+
+
+export const NotificationType = {
+  TASK_DUE: 'TASK_DUE',
+  TASK_ASSIGNED: 'TASK_ASSIGNED',
+  TASK_UPDATED: 'TASK_UPDATED',
+  COMMENT_MENTION: 'COMMENT_MENTION',
+  PROJECT_SHARED: 'PROJECT_SHARED',
+  TASK_COMMENTED: 'TASK_COMMENTED'
+} as const
+
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType]
+
+
+export const AccessRole = {
+  OWNER: 'OWNER',
+  EDITOR: 'EDITOR',
+  COMMENTER: 'COMMENTER',
+  VIEWER: 'VIEWER'
+} as const
+
+export type AccessRole = (typeof AccessRole)[keyof typeof AccessRole]

@@ -53,7 +53,15 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Project: 'Project',
-  Task: 'Task'
+  Task: 'Task',
+  TaskDependency: 'TaskDependency',
+  Subtask: 'Subtask',
+  Tag: 'Tag',
+  TaskTag: 'TaskTag',
+  Comment: 'Comment',
+  Notification: 'Notification',
+  ProjectAccess: 'ProjectAccess',
+  Webhook: 'Webhook'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -63,6 +71,9 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -85,7 +96,11 @@ export const ProjectScalarFieldEnum = {
   name: 'name',
   description: 'description',
   userId: 'userId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  isPublic: 'isPublic',
+  isTemplate: 'isTemplate',
+  templateName: 'templateName'
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
@@ -98,11 +113,116 @@ export const TaskScalarFieldEnum = {
   status: 'status',
   projectId: 'projectId',
   userId: 'userId',
+  assignedToId: 'assignedToId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  recurrenceRule: 'recurrenceRule',
+  recurrenceEndDate: 'recurrenceEndDate',
+  dueDate: 'dueDate',
+  priority: 'priority',
+  parentTaskId: 'parentTaskId'
 } as const
 
 export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
+
+
+export const TaskDependencyScalarFieldEnum = {
+  id: 'id',
+  dependentTaskId: 'dependentTaskId',
+  blockingTaskId: 'blockingTaskId',
+  type: 'type',
+  createdAt: 'createdAt'
+} as const
+
+export type TaskDependencyScalarFieldEnum = (typeof TaskDependencyScalarFieldEnum)[keyof typeof TaskDependencyScalarFieldEnum]
+
+
+export const SubtaskScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  completed: 'completed',
+  taskId: 'taskId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  order: 'order'
+} as const
+
+export type SubtaskScalarFieldEnum = (typeof SubtaskScalarFieldEnum)[keyof typeof SubtaskScalarFieldEnum]
+
+
+export const TagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  color: 'color',
+  createdAt: 'createdAt'
+} as const
+
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+
+
+export const TaskTagScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  tagId: 'tagId'
+} as const
+
+export type TaskTagScalarFieldEnum = (typeof TaskTagScalarFieldEnum)[keyof typeof TaskTagScalarFieldEnum]
+
+
+export const CommentScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  userId: 'userId',
+  taskId: 'taskId',
+  projectId: 'projectId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  mentions: 'mentions',
+  parentId: 'parentId'
+} as const
+
+export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  taskId: 'taskId',
+  type: 'type',
+  title: 'title',
+  message: 'message',
+  read: 'read',
+  createdAt: 'createdAt',
+  dueAt: 'dueAt'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
+export const ProjectAccessScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  userId: 'userId',
+  role: 'role',
+  createdAt: 'createdAt'
+} as const
+
+export type ProjectAccessScalarFieldEnum = (typeof ProjectAccessScalarFieldEnum)[keyof typeof ProjectAccessScalarFieldEnum]
+
+
+export const WebhookScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  userId: 'userId',
+  url: 'url',
+  events: 'events',
+  active: 'active',
+  secret: 'secret',
+  createdAt: 'createdAt',
+  lastTriggered: 'lastTriggered'
+} as const
+
+export type WebhookScalarFieldEnum = (typeof WebhookScalarFieldEnum)[keyof typeof WebhookScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -111,6 +231,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
 export const NullsOrder = {

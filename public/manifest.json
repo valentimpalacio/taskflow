@@ -1,0 +1,80 @@
+{
+  "name": "TaskFlow - Gerenciador de Tarefas",
+  "short_name": "TaskFlow",
+  "description": "Aplicação completa de gerenciamento de tarefas com suporte a Kanban, análise de produtividade e colaboração em tempo real",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#3B82F6",
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "lang": "pt-BR",
+  "categories": ["productivity"],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/screenshot-2.png",
+      "sizes": "1080x1440",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova Tarefa",
+      "short_name": "Nova Tarefa",
+      "description": "Criar uma nova tarefa rapidamente",
+      "url": "/new-task",
+      "icons": [
+        {
+          "src": "/icons/new-task.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Meus Projetos",
+      "short_name": "Projetos",
+      "description": "Ir para meus projetos",
+      "url": "/projects",
+      "icons": [
+        {
+          "src": "/icons/projects.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

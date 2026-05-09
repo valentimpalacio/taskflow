@@ -32,3 +32,43 @@ export type Project = Prisma.ProjectModel
  * 
  */
 export type Task = Prisma.TaskModel
+/**
+ * Model TaskDependency
+ * 
+ */
+export type TaskDependency = Prisma.TaskDependencyModel
+/**
+ * Model Subtask
+ * 
+ */
+export type Subtask = Prisma.SubtaskModel
+/**
+ * Model Tag
+ * 
+ */
+export type Tag = Prisma.TagModel
+/**
+ * Model TaskTag
+ * 
+ */
+export type TaskTag = Prisma.TaskTagModel
+/**
+ * Model Comment
+ * 
+ */
+export type Comment = Prisma.CommentModel
+/**
+ * Model Notification
+ * 
+ */
+export type Notification = Prisma.NotificationModel
+/**
+ * Model ProjectAccess
+ * 
+ */
+export type ProjectAccess = Prisma.ProjectAccessModel
+/**
+ * Model Webhook
+ * 
+ */
+export type Webhook = Prisma.WebhookModel

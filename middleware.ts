@@ -4,8 +4,9 @@ import { languages, defaultLanguage } from './src/i18n/config';
 export default createMiddleware({
   locales: languages,
   defaultLocale: defaultLanguage,
+  localePrefix: 'always',
 });
 
 export const config = {
-  matcher: ['/((?!api|_next|.*\\..*).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)'],
 };

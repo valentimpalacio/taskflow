@@ -2,28 +2,41 @@
 
 ## Início Rápido (5 minutos)
 
+### Pré-requisitos
+
+- **Node.js 18+**
+- **npm** (ou yarn / pnpm)
+- **PostgreSQL 16** (ou utilize Docker via `docker compose up -d`)
+
 ### 1. Instalação
 
 ```bash
-git clone https://github.com/valentimpalacio/projeto-typescript.git
-cd projeto-typescript
+git clone <url-do-repositorio>
+cd taskflow
 npm install
 ```
 
-### 2. Configuração de Banco de Dados
+### 2. Configuração de Ambiente
+
+```bash
+cp .env.example .env
+# Edite o arquivo .env com suas configurações de banco e NextAuth
+```
+
+### 3. Configuração de Banco de Dados
 
 ```bash
 npx prisma generate
 npx prisma db push
 ```
 
-### 3. Executar Aplicação
+### 4. Executar Aplicação
 
 ```bash
 npm run dev
 ```
 
-### 4. Acessar em Idiomas
+### 5. Acessar em Idiomas
 
 - 🇧🇷 **Português**: [http://localhost:3000/pt](http://localhost:3000/pt)
 - 🇺🇸 **English**: [http://localhost:3000/en](http://localhost:3000/en)
@@ -105,7 +118,6 @@ npm test           # Rodar testes
 ## 🆘 Ajuda
 
 - 📖 Veja [LANGUAGES.md](LANGUAGES.md) para documentação completa
-- 🐛 Veja [README.md](README.md) para troubleshooting
 - 💬 Abra uma issue no GitHub para dúvidas
 
 ---

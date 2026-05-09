@@ -17,17 +17,24 @@ services:
       timeout: 5s
       retries: 5
 
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXTAUTH_URL=http://localhost:3000
-      - NEXTAUTH_SECRET=change-me-in-production-use-a-random-256-bit-string-here
-      - DATABASE_URL=postgresql://taskflow:taskflow_password@db:5432/taskflow?schema=public
-    depends_on:
-      db:
-        condition: service_healthy
+   app:
+     build:
+       context: .
+       target: dev
+     ports:
+       - "3000:3000"
+     environment:
+       - NEXTAUTH_URL=http://localhost:3000
+       - NEXTAUTH_SECRET=change-me-in-production-use-a-random-256-bit-string-here
+       - DATABASE_URL=postgresql://taskflow:taskflow_password@db:5432/taskflow?schema=public
+       - HOST=0.0.0.0
+     volumes:
+       - .:/app
+       - /app/node_modules
+       - /app/.next
+     depends_on:
+       db:
+         condition: service_healthy
 
 volumes:
   postgres_data:

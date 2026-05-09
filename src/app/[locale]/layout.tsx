@@ -1,44 +1,50 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import '../globals.css';
-import { SessionProvider } from '@/components/SessionProvider';
 import { notFound } from 'next/navigation';
-import { languages } from '@/i18n/config';
-import { getTranslations } from 'next-intl/server';
+import { languages, Language, defaultLanguage } from '@/i18n/config';
+import { NextIntlClientProvider } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { SessionProvider } from '@/components/SessionProvider';
+import QueryProvider from '@/components/QueryProvider';
 
 export const dynamic = 'force-dynamic';
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
-
-const fontVars = geistSans.variable + ' ' + geistMono.variable;
-
-export async function generateStaticParams() {
-  return languages.map((lang) => ({ locale: lang }));
-}
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'common' });
-
   return {
-    title: 'TaskFlow - Modern Task Management',
+    title: {
+      default: 'TaskFlow — Modern Task Management',
+      template: '%s | TaskFlow',
+    },
     description:
-      'A full-stack task management application built with Next.js, TypeScript, Prisma, and Tailwind CSS. Features kanban board, dark mode, and more.',
+      'A full-stack task management application built with Next.js 16, TypeScript, Prisma 7, and Tailwind CSS 4. Features kanban board with drag-and-drop, dark mode, i18n, productivity analytics, and more.',
     keywords: [
       'task management',
       'project management',
       'kanban',
       'next.js',
       'typescript',
+      'prisma',
+      'tailwind css',
+      'productivity',
     ],
+    authors: [{ name: 'TaskFlow' }],
+    openGraph: {
+      title: 'TaskFlow — Modern Task Management',
+      description:
+        'A full-stack task management application with kanban board, dark mode, and productivity analytics.',
+      type: 'website',
+      locale: 'en_US',
+      siteName: 'TaskFlow',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'TaskFlow — Modern Task Management',
+      description:
+        'A full-stack task management application with kanban board, dark mode, and productivity analytics.',
+    },
   };
 }
 
@@ -50,17 +56,33 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  console.log(`[layout] Rendering for locale segment: ${locale}`);
 
-  if (!languages.includes(locale as any)) {
+  // Validate locale before anything else
+  if (!languages.includes(locale as Language)) {
     notFound();
   }
 
+  setRequestLocale(locale);
+
+  // Load messages directly from the JSON file — avoids any requestLocale
+  // timing issues that can occur when using getMessages() indirectly.
+  const validLocale = locale as Language;
+  let messages: Record<string, unknown>;
+  try {
+    messages = (await import(`@/i18n/messages/${validLocale}.json`)).default;
+  } catch {
+    messages = (await import(`@/i18n/messages/${defaultLanguage}.json`)).default;
+  }
+
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${fontVars} antialiased bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100`}
-      >
-        <SessionProvider>{children}</SessionProvider>
+    <html lang={validLocale}>
+      <body>
+        <NextIntlClientProvider locale={validLocale} messages={messages}>
+          <QueryProvider>
+            <SessionProvider>{children}</SessionProvider>
+          </QueryProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

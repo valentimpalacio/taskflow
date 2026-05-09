@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 import { prisma } from '@/lib/prisma';
 import { validateSignup } from '@/lib/validators';
@@ -58,7 +58,25 @@ export async function POST(request: NextRequest) {
       }
     );
   } catch (error) {
-    console.error('Signup error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Signup error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      timestamp: new Date().toISOString()
+    });
+    
+    // More specific error responses
+    if (error instanceof Error) {
+      if (error.message.includes('prisma') || error.message.includes('database')) {
+        return NextResponse.json({ error: 'Database connection failed' }, { status: 500 });
+      }
+      if (error.message.includes('bcrypt')) {
+        return NextResponse.json({ error: 'Password encryption failed' }, { status: 500 });
+      }
+    }
+    
+    return NextResponse.json({ 
+      error: 'Internal server error',
+      details: process.env.NODE_ENV === 'development' ? error : undefined
+    }, { status: 500 });
   }
 }

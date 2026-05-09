@@ -11,34 +11,217 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid())
-  email     String    @unique
-  name      String?
-  password  String
-  createdAt DateTime  @default(now())
-  projects  Project[]
-  tasks     Task[]
+  id              String    @id @default(cuid())
+  email           String    @unique
+  name            String?
+  password        String
+  createdAt       DateTime  @default(now())
+  projects        Project[]
+  tasks           Task[]
+  assignedTasks   Task[]    @relation("AssignedTo")
+  comments        Comment[]
+  notifications   Notification[]
+  projectAccess   ProjectAccess[]
+  webhooks        Webhook[]
 }
 
 model Project {
-  id          String   @id @default(cuid())
-  name        String
-  description String?
-  userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tasks       Task[]
-  createdAt   DateTime @default(now())
+  id              String   @id @default(cuid())
+  name            String
+  description     String?
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks           Task[]
+  comments        Comment[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  // Sharing & Permissions
+  isPublic        Boolean  @default(false)
+  projectAccess   ProjectAccess[]
+  
+  // Templates
+  isTemplate      Boolean  @default(false)
+  templateName    String?
+  
+  // Webhooks
+  webhooks        Webhook[]
 }
 
 model Task {
+  id              String   @id @default(cuid())
+  title           String
+  description     String?
+  status          String   @default("todo")
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId          String?
+  user            User?    @relation(fields: [userId], references: [id])
+  assignedToId    String?
+  assignedTo      User?    @relation("AssignedTo", fields: [assignedToId], references: [id])
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  // Recurrence settings
+  recurrenceRule  String?
+  recurrenceEndDate DateTime?
+  
+  // Basic fields
+  dueDate         DateTime?
+  priority        Priority @default(LOW)
+  
+  // Subtasks
+  subtasks        Subtask[]
+  parentTaskId    String?
+  parentTask      Task?    @relation("SubTasks", fields: [parentTaskId], references: [id], onDelete: Cascade)
+  relatedTasks    Task[]   @relation("SubTasks")
+  
+  // Task Dependencies (NEW)
+  dependsOn       TaskDependency[] @relation("DependsOn")
+  blocks          TaskDependency[] @relation("Blocks")
+  
+  // Tags/Labels
+  tags            TaskTag[]
+  
+  // Comments
+  comments        Comment[]
+  
+  // Notifications
+  notifications   Notification[]
+}
+
+// New model for task dependencies
+model TaskDependency {
+  id              String   @id @default(cuid())
+  dependentTaskId String
+  blockingTaskId  String
+  type            DependencyType @default(FINISH_TO_START)
+  
+  dependentTask   Task     @relation("Blocks", fields: [dependentTaskId], references: [id], onDelete: Cascade)
+  blockingTask    Task     @relation("DependsOn", fields: [blockingTaskId], references: [id], onDelete: Cascade)
+  
+  createdAt       DateTime @default(now())
+  
+  @@unique([dependentTaskId, blockingTaskId])
+}
+
+model Subtask {
   id          String   @id @default(cuid())
   title       String
-  description String?
-  status      String   @default("todo")
-  projectId   String
-  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  userId      String?
-  user        User?    @relation(fields: [userId], references: [id])
+  completed   Boolean  @default(false)
+  taskId      String
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  order       Int      @default(0)
+}
+
+model Tag {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  color       String   @default("#3B82F6")
+  createdAt   DateTime @default(now())
+  tasks       TaskTag[]
+}
+
+model TaskTag {
+  id          String   @id @default(cuid())
+  taskId      String
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  tagId       String
+  tag         Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  
+  @@unique([taskId, tagId])
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  content     String
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId      String?
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  projectId   String?
+  project     Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Mentions & Replies
+  mentions    String[] // array of user IDs mentioned
+  parentId    String?
+  parent      Comment? @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies     Comment[] @relation("CommentReplies")
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId      String?
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  
+  type        NotificationType
+  title       String
+  message     String
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  dueAt       DateTime? // for reminders
+}
+
+model ProjectAccess {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  role        AccessRole @default(VIEWER)
+  createdAt   DateTime @default(now())
+  
+  @@unique([projectId, userId])
+}
+
+model Webhook {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  url         String
+  events      String[] // array of event types: task.created, task.updated, etc
+  active      Boolean  @default(true)
+  secret      String   // for HMAC verification
+  createdAt   DateTime @default(now())
+  lastTriggered DateTime?
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum DependencyType {
+  FINISH_TO_START
+  START_TO_START
+  FINISH_TO_FINISH
+  START_TO_FINISH
+}
+
+enum NotificationType {
+  TASK_DUE
+  TASK_ASSIGNED
+  TASK_UPDATED
+  COMMENT_MENTION
+  PROJECT_SHARED
+  TASK_COMMENTED
+}
+
+enum AccessRole {
+  OWNER
+  EDITOR
+  COMMENTER
+  VIEWER
 }
