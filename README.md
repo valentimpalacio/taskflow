@@ -56,7 +56,30 @@ https://github.com/user-attachments/assets/demo-placeholder
 
 <br/>
 
-## 🖥️ Tech Stack
+## � Screenshots
+
+### Dashboard & Main Views
+
+<div align="center">
+
+| Dashboard | Kanban Board | Gantt Chart |
+|-----------|--------------|-----------|
+| ![Dashboard](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/01-dashboard.png) | ![Kanban](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/02-kanban.png) | ![Gantt](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/03-gantt.png) |
+
+| Calendar View | Analytics | Project Management |
+|---------------|-----------|-------------------|
+| ![Calendar](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/04-calendar.png) | ![Analytics](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/05-analytics.png) | ![Projects](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/06-projects.png) |
+
+</div>
+
+> 💡 **To add screenshots:**
+> 1. Take screenshots of the application
+> 2. Upload to GitHub via [Releases](https://github.com/valentimpalacio/taskflow/releases) or [Discussions](https://github.com/valentimpalacio/taskflow/discussions)
+> 3. Replace the image URLs above with the actual GitHub asset URLs
+
+<br/>
+
+## �🖥️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
