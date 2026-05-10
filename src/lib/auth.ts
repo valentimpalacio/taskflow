@@ -11,8 +11,9 @@ interface UserSession {
 }
 
 export const authOptions: NextAuthOptions = {
-  providers: [
-    CredentialsProvider({
+  providers: (() => {
+    const providers = [
+      CredentialsProvider({
       name: 'credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
@@ -39,11 +40,29 @@ export const authOptions: NextAuthOptions = {
         } as UserSession;
       },
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
+    ];
+
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+    const hasGoogleConfig =
+      !!clientId &&
+      !!clientSecret &&
+      clientId !== 'your-google-client-id' &&
+      clientSecret !== 'your-google-client-secret';
+
+    // Keep Google auth optional so credentials login works in environments
+    // where OAuth secrets are not configured (e.g., screenshots/demo setup).
+    if (hasGoogleConfig) {
+      providers.push(
+        GoogleProvider({
+          clientId,
+          clientSecret,
+        })
+      );
+    }
+
+    return providers;
+  })(),
   session: { strategy: 'jwt' },
   callbacks: {
     async jwt({ token, user }) {
