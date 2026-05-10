@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 # 🚀 TaskFlow
 
@@ -11,7 +11,7 @@
 ![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/your-username/taskflow/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/valentimpalacio/taskflow/pulls)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 [![Built with Next.js](https://img.shields.io/badge/Built_with-Next.js_16-black?style=flat-square&logo=next.js)](https://nextjs.org)
 
@@ -56,28 +56,60 @@ https://github.com/user-attachments/assets/demo-placeholder
 
 <br/>
 
-## � Screenshots
+## 📸 Screenshots
+
+### Authentication Views
+
+<div align="center">
+
+| Portuguese | English | Spanish |
+|-----------|---------|---------|
+| ![Sign In PT](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/01-pt-signin.png) | ![Sign In EN](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/02-en-signin.png) | ![Sign In ES](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/03-es-signin.png) |
+
+</div>
 
 ### Dashboard & Main Views
 
 <div align="center">
 
-| Dashboard | Kanban Board | Gantt Chart |
-|-----------|--------------|-----------|
-| ![Dashboard](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/01-dashboard.png) | ![Kanban](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/02-kanban.png) | ![Gantt](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/03-gantt.png) |
-
-| Calendar View | Analytics | Project Management |
-|---------------|-----------|-------------------|
-| ![Calendar](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/04-calendar.png) | ![Analytics](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/05-analytics.png) | ![Projects](https://github.com/valentimpalacio/taskflow/assets/your-username/screenshots/06-projects.png) |
+| Portuguese | English | Spanish |
+|-----------|---------|---------|
+| ![Dashboard PT](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/04-pt-dashboard.png) | ![Dashboard EN](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/05-en-dashboard.png) | ![Dashboard ES](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/06-es-dashboard.png) |
 
 </div>
 
-> 💡 **To add screenshots:**
-> 1. Take screenshots of the application
-> 2. Upload to GitHub via [Releases](https://github.com/valentimpalacio/taskflow/releases) or [Discussions](https://github.com/valentimpalacio/taskflow/discussions)
-> 3. Replace the image URLs above with the actual GitHub asset URLs
+### Feature Showcases
+
+<div align="center">
+
+| Kanban Board | Gantt Chart | Calendar View |
+|-----------|---------|---------|
+| ![Kanban Board](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/07-pt-kanban.png) | ![Gantt Chart](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/08-pt-gantt.png) | ![Calendar View](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/09-pt-calendar.png) |
+
+</div>
+
+### Advanced Features
+
+<div align="center">
+
+| Analytics | Reports | Dark Mode |
+|-----------|---------|-----------|
+| ![Analytics](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/10-pt-analytics.png) | ![Reports](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/11-pt-reports.png) | ![Dark Mode](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/12-pt-dark-mode.png) |
+
+</div>
+
+### Responsive Design
+
+<div align="center">
+
+| Mobile View |
+|-----------|
+| ![Mobile](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/13-pt-mobile.png) |
+
+</div>
 
 <br/>
+
 
 ## �🖥️ Tech Stack
 
@@ -110,7 +142,7 @@ https://github.com/user-attachments/assets/demo-placeholder
 
 ```bash
 # Clone the repository
-git clone <url-do-repositorio>
+git clone https://github.com/valentimpalacio/taskflow.git
 cd taskflow
 
 # Install dependencies
