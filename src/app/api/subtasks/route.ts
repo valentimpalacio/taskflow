@@ -2,6 +2,29 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 
+// GET /api/subtasks?taskId=xxx - Get subtasks for a task
+export async function GET(request: NextRequest) {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  const { searchParams } = new URL(request.url);
+  const taskId = searchParams.get('taskId');
+
+  if (!taskId) {
+    return NextResponse.json({ error: 'Missing taskId parameter' }, { status: 400 });
+  }
+
+  // TODO: Implement Prisma client to fetch subtasks
+  // const subtasks = await prisma.subtask.findMany({
+  //   where: { taskId },
+  //   orderBy: { createdAt: 'asc' },
+  // })
+
+  return NextResponse.json([]);
+}
+
 // POST /api/subtasks - Create subtask
 export async function POST(request: NextRequest) {
   const session = await getServerSession(authOptions);

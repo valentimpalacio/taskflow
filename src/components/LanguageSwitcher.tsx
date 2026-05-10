@@ -22,9 +22,6 @@ export default function LanguageSwitcher() {
 
     setIsLoading(true);
     try {
-      // next-intl's pathname already excludes the locale prefix
-      // Just use the same pathname with the new locale
-      console.log(`Switching language: ${locale} -> ${newLocale}, pathname: ${pathname}`);
       intlRouter.replace(pathname, { locale: newLocale as Language });
     } catch (error) {
       console.error(`Language switch failed from ${locale} to ${newLocale}:`, error);

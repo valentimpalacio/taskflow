@@ -22,7 +22,7 @@ interface DuplicateProjectPayload {
 export function useDuplicateTask() {
   return useMutation({
     mutationFn: async (payload: DuplicateTaskPayload) => {
-      const response = await fetch('/api/tasks/duplicate', {
+      const response = await fetch('/api/duplicate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -36,8 +36,8 @@ export function useDuplicateTask() {
 export function useDuplicateProject() {
   return useMutation({
     mutationFn: async (payload: DuplicateProjectPayload) => {
-      const response = await fetch('/api/projects/duplicate', {
-        method: 'POST',
+      const response = await fetch('/api/duplicate', {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
@@ -61,7 +61,7 @@ export function useProjectTemplates() {
 export function useCreateFromTemplate() {
   return useMutation({
     mutationFn: async (templateId: string) => {
-      const response = await fetch('/api/projects/from-template', {
+      const response = await fetch('/api/projects/templates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ templateId }),

@@ -8,7 +8,7 @@ export function useSubtasks(taskId: string) {
   return useQuery({
     queryKey: ['subtasks', taskId],
     queryFn: async () => {
-      const response = await fetch(`/api/tasks/${taskId}/subtasks`);
+      const response = await fetch(`/api/subtasks?taskId=${taskId}`);
       if (!response.ok) throw new Error('Failed to fetch subtasks');
       return response.json() as Promise<Subtask[]>;
     },
@@ -43,7 +43,7 @@ export function useToggleSubtask() {
       id: string;
       completed: boolean;
     }) => {
-      const response = await fetch(`/api/subtasks/${id}`, {
+      const response = await fetch(`/api/subtasks?id=${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed }),
@@ -61,7 +61,7 @@ export function useDeleteSubtask() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch(`/api/subtasks/${id}`, {
+      const response = await fetch(`/api/subtasks?id=${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete subtask');
@@ -185,7 +185,7 @@ export function useMarkNotificationAsRead() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch(`/api/notifications/${id}/read`, {
+      const response = await fetch(`/api/notifications?id=${id}`, {
         method: 'PATCH',
       });
       if (!response.ok) throw new Error('Failed to mark as read');
@@ -201,7 +201,7 @@ export function useDeleteNotification() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const response = await fetch(`/api/notifications/${id}`, {
+      const response = await fetch(`/api/notifications?id=${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete notification');

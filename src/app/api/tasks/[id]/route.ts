@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { checkRateLimit } from '@/lib/rate-limit';
-import { validateTaskInput } from '@/lib/validators';
+import { validateTaskUpdate } from '@/lib/validators';
 
 export async function GET(
   request: NextRequest,
