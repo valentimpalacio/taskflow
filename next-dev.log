@@ -1,0 +1,311 @@
+
+> taskflow@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.16:3000
+- Environments: .env.local, .env
+✓ Ready in 1462ms
+
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+Error: Can't resolve 'tailwindcss' in 'c:\Users\usuario\Downloads'
+    [2m[at finishWithoutResolve (C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:587:18)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:679:14][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:16:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m
+    [2m[at C:\Users\usuario\Downloads\taskflow\node_modules\enhanced-resolve\lib\Resolver.js:740:5][0m
+    [2m[at eval (eval at create (C:\Users\usuario\Downloads\taskflow\node_modules\tapable\lib\HookCodeFactory.js:31:10), <anonymous>:15:1)][0m {
+  details: "resolve 'tailwindcss' in 'c:\\Users\\usuario\\Downloads'\n" +
+    '  Parsed request is a module\n' +
+    '  No description file found in c:\\Users\\usuario\\Downloads or above\n' +
+    '  resolve as module\n' +
+    "    c:\\Users\\usuario\\Downloads\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\usuario\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\Users\\node_modules doesn't exist or is not a directory\n" +
+    "    c:\\node_modules doesn't exist or is not a directory"
+}
+^C^C

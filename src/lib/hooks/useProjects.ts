@@ -39,7 +39,7 @@ export function useUpdateTaskStatus() {
         if (!old) return [];
         return old.map((project) => ({
           ...project,
-          tasks: project.tasks.map((task) =>
+          tasks: (project.tasks || []).map((task) =>
             task.id === taskId ? { ...task, status } : task
           ),
         }));

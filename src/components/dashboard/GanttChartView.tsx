@@ -46,7 +46,7 @@ export default function GanttChartView({
   }, [tasks]);
 
   const getTaskDuration = (startDate: Date | null, endDate: Date | null): number => {
-    if (!startDate || !endDate) return 0;
+    if (!startDate || !endDate || isNaN(startDate.getTime()) || isNaN(endDate.getTime())) return 0;
     const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
@@ -158,7 +158,7 @@ export default function GanttChartView({
             </div>
             
             <div className="flex-1 relative h-8 bg-gray-100 dark:bg-gray-700 rounded">
-              {task.startDate && task.endDate && (
+              {task.startDate && task.endDate && !isNaN(task.startDate.getTime()) && !isNaN(task.endDate.getTime()) && (
                 <>
                   {/* Task bar */}
                   <div 
@@ -172,7 +172,7 @@ export default function GanttChartView({
                   {/* Dependency arrows */}
                   {task.dependsOn.map((depId, idx) => {
                     const depTask = ganttTasks.find(t => t.id === depId);
-                    if (depTask && depTask.endDate) {
+                    if (depTask && depTask.endDate && !isNaN(depTask.endDate.getTime())) {
                       const depEndPos = (depTask.endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
                       const taskStartPos = (task.startDate?.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) || 0;
                       

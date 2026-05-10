@@ -95,7 +95,7 @@ export async function PUT(
   }
 
   const body = await request.json();
-  const validation = validateTaskInput(body);
+  const validation = validateTaskUpdate(body);
   if (!validation.valid) {
     return NextResponse.json({ error: validation.error }, { status: 400 });
   }

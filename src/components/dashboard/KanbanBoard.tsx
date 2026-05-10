@@ -23,7 +23,7 @@ export default function KanbanBoard({ projects, onRefresh }: Props) {
   const { showToast } = useToast();
   const updateTaskMutation = useUpdateTaskStatus();
 
-  const allTasks = projects.flatMap(p => p.tasks.map(t => ({ ...t, projectName: p.name, projectId: p.id })));
+  const allTasks = projects.flatMap(p => (p.tasks || []).map(t => ({ ...t, projectName: p.name, projectId: p.id })));
 
   const getTasksByStatus = useCallback((status: TaskStatus) => allTasks.filter(t => t.status === status), [allTasks]);
 

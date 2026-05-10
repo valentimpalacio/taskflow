@@ -32,7 +32,7 @@ export default function AllTasks({ projects, onRefresh }: Props) {
   };
 
   const allTasks = projects.flatMap((p) =>
-    p.tasks.map((t) => ({ ...t, projectName: p.name, projectId: p.id }))
+    (p.tasks || []).map((t) => ({ ...t, projectName: p.name, projectId: p.id }))
   );
 
   const filtered = useMemo(() => {

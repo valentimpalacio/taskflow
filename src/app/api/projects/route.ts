@@ -39,15 +39,20 @@ export async function GET(request: NextRequest) {
     );
   }
 
+  const user = await prisma.user.findUnique({ where: { email: session.user.email } });
+  if (!user) {
+    return NextResponse.json({ error: 'User not found' }, { status: 404 });
+  }
+
   const [projects, total] = await Promise.all([
     prisma.project.findMany({
-      where: { userId: session.user.email },
+      where: { userId: user.id },
       include: { tasks: { orderBy: { createdAt: 'desc' } } },
       orderBy: { createdAt: 'desc' },
       skip,
       take: limitNum,
     }),
-    prisma.project.count({ where: { userId: session.user.email } }),
+    prisma.project.count({ where: { userId: user.id } }),
   ]);
 
   return NextResponse.json(

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+  <rect width="100%" height="100%" fill="#04294F" />
+  <text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#ffffff">Kanban Board Preview (placeholder)</text>
+  <text x="50%" y="55%" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#9CA3AF">Replace with a real screenshot at docs/screenshots/02-kanban.svg</text>
+</svg>

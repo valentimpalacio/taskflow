@@ -61,9 +61,10 @@ export default function ProjectList({ projects, onRefresh }: Props) {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project, idx) => {
-          const doneCount = project.tasks.filter((t) => t.status === 'done').length;
-          const progress = project.tasks.length > 0
-            ? Math.round((doneCount / project.tasks.length) * 100)
+          const tasks = project.tasks || [];
+          const doneCount = tasks.filter((t) => t.status === 'done').length;
+          const progress = tasks.length > 0
+            ? Math.round((doneCount / tasks.length) * 100)
             : 0;
 
           return (
@@ -104,7 +105,7 @@ export default function ProjectList({ projects, onRefresh }: Props) {
               <div className="flex items-center gap-3 mb-3 text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                  {project.tasks.length} {project.tasks.length !== 1 ? t('tasks') : t('task')}
+                  {tasks.length} {tasks.length !== 1 ? t('tasks') : t('task')}
                 </span>
                 {doneCount > 0 && (
                   <span className="flex items-center gap-1.5">
@@ -112,7 +113,7 @@ export default function ProjectList({ projects, onRefresh }: Props) {
                     {doneCount} {t('done').toLowerCase()}
                   </span>
                 )}
-                {project.tasks.length > 0 && (
+                {tasks.length > 0 && (
                   <span className="ml-auto font-semibold text-slate-600 dark:text-slate-300 tabular-nums">
                     {progress}%
                   </span>
@@ -120,7 +121,7 @@ export default function ProjectList({ projects, onRefresh }: Props) {
               </div>
 
               {/* Progress Bar */}
-              {project.tasks.length > 0 && (
+              {tasks.length > 0 && (
                 <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mb-3 overflow-hidden">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-primary-500 to-primary-400 progress-fill"
@@ -130,9 +131,9 @@ export default function ProjectList({ projects, onRefresh }: Props) {
               )}
 
               {/* Tasks */}
-              {project.tasks.length > 0 ? (
+              {tasks.length > 0 ? (
                 <div className="space-y-1.5">
-                  {project.tasks.slice(0, 4).map((task) => {
+                  {tasks.slice(0, 4).map((task) => {
                     const taskColors = TASK_STATUS_COLORS[task.status as TaskStatus];
                     return (
                       <div
@@ -157,9 +158,9 @@ export default function ProjectList({ projects, onRefresh }: Props) {
                       </div>
                     );
                   })}
-                  {project.tasks.length > 4 && (
+                  {tasks.length > 4 && (
                     <p className="text-xs text-slate-400 dark:text-slate-500 pl-3 pt-1">
-                      +{project.tasks.length - 4} {t('more')}
+                      +{tasks.length - 4} {t('more')}
                     </p>
                   )}
                 </div>

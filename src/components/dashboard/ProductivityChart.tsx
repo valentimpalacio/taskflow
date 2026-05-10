@@ -29,7 +29,7 @@ export default function ProductivityChart({ projects }: Props) {
       return d.toISOString().split('T')[0];
     }).reverse();
 
-    const allTasks = projects.flatMap((p) => p.tasks);
+    const allTasks = projects.flatMap((p) => p.tasks || []);
     const completedTasks = allTasks.filter((t) => t.status === 'done');
 
     return last7Days.map((date) => {

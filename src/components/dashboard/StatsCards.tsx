@@ -44,7 +44,7 @@ function AnimatedNumber({ value, label }: { value: number; label: string }) {
 
 export default function StatsCards({ projects }: Props) {
   const t = useTranslations('stats');
-  const allTasks: Task[] = projects.flatMap((p) => p.tasks);
+  const allTasks: Task[] = projects.flatMap((p) => p.tasks || []);
   const todo = allTasks.filter((t) => t.status === 'todo').length;
   const inProgress = allTasks.filter((t) => t.status === 'in_progress').length;
   const done = allTasks.filter((t) => t.status === 'done').length;

@@ -10,7 +10,7 @@ async function main() {
   await prisma.user.deleteMany();
 
   // Create demo user
-  const hashedPassword = await bcrypt.hash('Demo@123456', 10);
+  const hashedPassword = await bcrypt.hash('demo123456', 10);
   const user = await prisma.user.create({
     data: {
       email: 'demo@taskflow.com',
@@ -49,7 +49,7 @@ async function main() {
   }
 
   console.log('Database seeded successfully!');
-  console.log('Demo credentials: demo@taskflow.com / Demo@123456');
+  console.log('Demo credentials: demo@taskflow.com / demo123456');
 }
 
 main()
