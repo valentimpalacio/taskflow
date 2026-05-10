@@ -62,7 +62,15 @@ self.addEventListener('fetch', (event) => {
           }
           // Return offline page for navigation requests
           if (request.mode === 'navigate') {
-            return caches.match('/offline.html');
+            return caches.match('/offline.html').then((offline) => {
+              return (
+                offline ??
+                new Response('Offline', {
+                  status: 503,
+                  statusText: 'Service Unavailable',
+                })
+              );
+            });
           }
           return new Response('Offline', {
             status: 503,
@@ -74,9 +82,10 @@ self.addEventListener('fetch', (event) => {
 });
 
 // Handle background sync for offline changes
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'sync-tasks') {
-    event.waitUntil(syncTasks());
+self.addEventListener('sync', (event: Event) => {
+  const e = event as ExtendableEvent & { tag: string };
+  if (e.tag === 'sync-tasks') {
+    e.waitUntil(syncTasks());
   }
 });
 
@@ -106,7 +115,7 @@ self.addEventListener('push', (event) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   event.waitUntil(
-    clients.matchAll({ type: 'window' }).then((clientList) => {
+    self.clients.matchAll({ type: 'window' }).then((clientList) => {
       // Focus existing window
       for (let i = 0; i < clientList.length; i++) {
         const client = clientList[i];
@@ -115,9 +124,7 @@ self.addEventListener('notificationclick', (event) => {
         }
       }
       // Open new window
-      if (clients.openWindow) {
-        return clients.openWindow(event.notification.tag || '/');
-      }
+      return self.clients.openWindow(event.notification.tag || '/');
     })
   );
 });

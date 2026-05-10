@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Bell, X, Check, CheckAll } from 'lucide-react';
+import { Bell, X, Check, ListChecks } from 'lucide-react';
 import { Notification } from '@/types';
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR, enUS, es } from 'date-fns/locale';
@@ -91,7 +91,7 @@ export default function NotificationBell({
                   onClick={onMarkAllAsRead}
                   className="flex items-center gap-1 text-xs text-blue-500 hover:text-blue-600"
                 >
-                  <CheckAll className="h-4 w-4" />
+                  <ListChecks className="h-4 w-4" />
                   Marcar tudo como lido
                 </button>
               )}

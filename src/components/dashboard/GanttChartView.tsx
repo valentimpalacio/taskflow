@@ -174,7 +174,8 @@ export default function GanttChartView({
                     const depTask = ganttTasks.find(t => t.id === depId);
                     if (depTask && depTask.endDate && !isNaN(depTask.endDate.getTime())) {
                       const depEndPos = (depTask.endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
-                      const taskStartPos = (task.startDate?.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) || 0;
+                      const taskStartPos =
+                        (task.startDate!.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) || 0;
                       
                       if (depEndPos >= 0 && taskStartPos >= 0) {
                         return (

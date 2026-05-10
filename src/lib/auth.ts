@@ -12,7 +12,7 @@ interface UserSession {
 
 export const authOptions: NextAuthOptions = {
   providers: (() => {
-    const providers = [
+    const providers: NextAuthOptions['providers'] = [
       CredentialsProvider({
       name: 'credentials',
       credentials: {

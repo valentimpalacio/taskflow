@@ -5,7 +5,12 @@ import { useState } from 'react';
 import { languages, languageNames, Language } from '@/i18n/config';
 import { useRouter as useIntlRouter, usePathname } from '@/i18n/navigation';
 
-export default function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  /** Preserved as query string when switching locale (e.g. email on sign-in). */
+  extraSearchParams?: Record<string, string>;
+};
+
+export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcherProps = {}) {
   const locale = useLocale();
   const intlRouter = useIntlRouter();
   const pathname = usePathname();
@@ -22,7 +27,11 @@ export default function LanguageSwitcher() {
 
     setIsLoading(true);
     try {
-      intlRouter.replace(pathname, { locale: newLocale as Language });
+      const qs =
+        extraSearchParams && Object.keys(extraSearchParams).length > 0
+          ? `?${new URLSearchParams(extraSearchParams).toString()}`
+          : '';
+      intlRouter.replace(`${pathname}${qs}`, { locale: newLocale as Language });
     } catch (error) {
       console.error(`Language switch failed from ${locale} to ${newLocale}:`, error);
       setIsLoading(false);
