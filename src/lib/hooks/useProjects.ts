@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Project, Task, TaskStatus } from '@/types';
 
-export function useProjects() {
+export function useProjects(options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: ['projects'],
     queryFn: async () => {
@@ -10,6 +10,7 @@ export function useProjects() {
       const data = await res.json();
       return data.projects as Project[];
     },
+    enabled: options?.enabled !== false,
   });
 }
 

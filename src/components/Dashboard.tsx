@@ -29,7 +29,7 @@ function DashboardContent() {
   const router = useRouter();
   const locale = useLocale();
   const queryClient = useQueryClient();
-  const { data: projects = [], isLoading: loading } = useProjects();
+  const { data: projects = [], isLoading: loading } = useProjects({ enabled: status === 'authenticated' });
   const [view, setView] = useState<ViewMode>('board');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
