@@ -1,0 +1,12 @@
+'\\wsl.localhost\Ubuntu\home\usuario'
+CMD.EXE foi iniciado tendo o caminho acima como pasta atual.
+NÆo h  suporte para caminhos UNC. Padronizando para pasta do Windows.
+â¨¯ Failed to start server
+Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+    at <unknown> (Error: listen EADDRINUSE: address already in use 0.0.0.0:3000) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 3000
+}

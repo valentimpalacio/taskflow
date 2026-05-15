@@ -21,14 +21,14 @@ async function takeScreenshot(page, name) {
 
 async function login(page) {
   console.log('🔐 Logging in...');
-  await page.goto(`${BASE_URL}/pt/auth/signin`, { waitUntil: 'networkidle0' });
-  await sleep(1500);
+  await page.goto(`${BASE_URL}/pt/auth/signin`, { waitUntil: 'networkidle0', timeout: 30000 });
+  await sleep(2000);
 
-  await page.waitForSelector('input[type="email"]', { timeout: 15000 });
-  await page.type('input[type="email"]', DEMO_EMAIL, { delay: 15 });
+  await page.waitForSelector('input[type="email"]', { timeout: 20000 });
+  await page.type('input[type="email"]', DEMO_EMAIL, { delay: 20 });
 
-  await page.waitForSelector('input[type="password"]', { timeout: 15000 });
-  await page.type('input[type="password"]', DEMO_PASSWORD, { delay: 15 });
+  await page.waitForSelector('input[type="password"]', { timeout: 20000 });
+  await page.type('input[type="password"]', DEMO_PASSWORD, { delay: 20 });
 
   // Click submit and wait for navigation
   await Promise.all([
@@ -36,15 +36,15 @@ async function login(page) {
       const btn = document.querySelector('button[type="submit"]');
       if (btn) btn.click();
     }),
-    page.waitForNavigation({ waitUntil: 'networkidle0' }).catch(() => {}),
+    page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 30000 }).catch(() => {}),
   ]);
 
   // Wait for dashboard content
   await page.waitForFunction(
     () => window.location.pathname.endsWith('/pt'),
-    { timeout: 20000 }
+    { timeout: 30000 }
   );
-  await sleep(3000);
+  await sleep(5000);
   console.log('✅ Logged in successfully');
 }
 
@@ -109,9 +109,12 @@ async function main() {
     await page.goto(`${BASE_URL}/es/auth/signin`, { waitUntil: 'networkidle0' });
     await sleep(1000);
     await takeScreenshot(page, '03-es-signin');
+    console.log('✅ Completed authentication screens');
 
     // ========== LOGIN ==========
+    console.log('🔐 Starting login process...');
     await login(page);
+    console.log('✅ Login completed successfully');
 
     // ========== DASHBOARD in 3 languages ==========
     console.log('\n=== Dashboard ===');
@@ -203,7 +206,8 @@ async function main() {
 
   } catch (error) {
     console.error('❌ Error:', error.message);
-    console.error(error.stack);
+    console.error('❌ Stack:', error.stack);
+    console.error('❌ Error details:', JSON.stringify(error, null, 2));
   } finally {
     await browser.close();
   }

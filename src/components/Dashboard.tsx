@@ -43,6 +43,11 @@ function DashboardContent() {
     }
   }, [status, router]);
 
+  // Don't render anything until we know auth status
+  if (status === 'loading') {
+    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  }
+
   if (status === 'unauthenticated') {
     return null;
   }

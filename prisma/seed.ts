@@ -1,13 +1,18 @@
 ﻿import bcrypt from 'bcrypt';
-import { prisma } from '../src/lib/prisma';
+import { prisma } from '../src/lib/prisma.js';
 
 async function main() {
   console.log('Seeding database...');
 
-  // Clean existing data
-  await prisma.task.deleteMany();
-  await prisma.project.deleteMany();
-  await prisma.user.deleteMany();
+  // Verificar se demo user já existe
+  const existingUser = await prisma.user.findUnique({
+    where: { email: 'demo@taskflow.com' }
+  });
+  
+  if (existingUser) {
+    console.log('Demo user já existe, pulando seed');
+    return;
+  }
 
   // Create demo user
   const hashedPassword = await bcrypt.hash('demo123456', 10);
@@ -18,6 +23,7 @@ async function main() {
       password: hashedPassword,
     },
   });
+  console.log('✅ User created:', user.email);
 
   // Create projects
   const website = await prisma.project.create({
@@ -29,6 +35,7 @@ async function main() {
   const api = await prisma.project.create({
     data: { name: 'API Development', description: 'RESTful API for the new microservices architecture', userId: user.id },
   });
+  console.log('✅ 3 projects created');
 
   // Create tasks
   const tasks = [
@@ -47,8 +54,8 @@ async function main() {
   for (const task of tasks) {
     await prisma.task.create({ data: task });
   }
-
-  console.log('Database seeded successfully!');
+  console.log('✅ 10 tasks created');
+  console.log('\n✨ Seed completo!');
   console.log('Demo credentials: demo@taskflow.com / demo123456');
 }
 

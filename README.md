@@ -21,14 +21,7 @@
 
 ---
 
-<br/>
-
-<div align="center">
-
-## 🌟 Live Demo Preview
-
-🚧 *Demo em produção será disponibilizada em breve*
-</div>
+https://github.com/user-attachments/assets/demo-placeholder
 
 </div>
 
@@ -71,7 +64,7 @@
 
 | Portuguese | English | Spanish |
 |-----------|---------|---------|
-| ![Sign In PT](./screenshots/01-pt-signin.png) | ![Sign In EN](./screenshots/02-en-signin.png) | ![Sign In ES](./screenshots/03-es-signin.png) |
+| ![Sign In PT](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/01-pt-signin.png) | ![Sign In EN](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/02-en-signin.png) | ![Sign In ES](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/03-es-signin.png) |
 
 </div>
 
@@ -81,7 +74,7 @@
 
 | Portuguese | English | Spanish |
 |-----------|---------|---------|
-| ![Dashboard PT](./screenshots/04-pt-dashboard.png) | ![Dashboard EN](./screenshots/05-en-dashboard.png) | ![Dashboard ES](./screenshots/06-es-dashboard.png) |
+| ![Dashboard PT](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/04-pt-dashboard.png) | ![Dashboard EN](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/05-en-dashboard.png) | ![Dashboard ES](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/06-es-dashboard.png) |
 
 </div>
 
@@ -91,7 +84,7 @@
 
 | Kanban Board | Gantt Chart | Calendar View |
 |-----------|---------|---------|
-| ![Kanban Board](./screenshots/07-pt-kanban.png) | ![Gantt Chart](./screenshots/08-pt-gantt.png) | ![Calendar View](./screenshots/09-pt-calendar.png) |
+| ![Kanban Board](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/07-pt-kanban.png) | ![Gantt Chart](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/08-pt-gantt.png) | ![Calendar View](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/09-pt-calendar.png) |
 
 </div>
 
@@ -101,7 +94,7 @@
 
 | Analytics | Reports | Dark Mode |
 |-----------|---------|-----------|
-| ![Analytics](./screenshots/10-pt-analytics.png) | ![Reports](./screenshots/11-pt-reports.png) | ![Dark Mode](./screenshots/12-pt-dark-mode.png) |
+| ![Analytics](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/10-pt-analytics.png) | ![Reports](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/11-pt-reports.png) | ![Dark Mode](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/12-pt-dark-mode.png) |
 
 </div>
 
@@ -111,14 +104,14 @@
 
 | Mobile View |
 |-----------|
-| ![Mobile](./screenshots/13-pt-mobile.png) |
+| ![Mobile](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/13-pt-mobile.png) |
 
 </div>
 
 <br/>
 
 
-## 🖥️ Tech Stack
+## �🖥️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|

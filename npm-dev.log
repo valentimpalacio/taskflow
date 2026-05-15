@@ -1,11 +1,680 @@
-
-> taskflow@1.0.0 dev
-> next dev
-
+Current directory: C:\Users\usuario\Downloads\taskflow
 ▲ Next.js 16.2.4 (Turbopack)
 - Local:         http://localhost:3000
-- Network:       http://192.168.0.16:3000
+- Network:       http://0.0.0.0:3000
 - Environments: .env.local, .env
-✓ Ready in 567ms
+✓ Ready in 474ms
 
-Deseja finalizar o arquivo em lotes (S/N)? [?25h
+ GET / 307 in 2.1s (next.js: 1968ms, application-code: 156ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 3.5s (next.js: 3.2s, application-code: 276ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 113ms (next.js: 18ms, application-code: 95ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1213ms (next.js: 1123ms, application-code: 90ms)
+ GET /api/health 200 in 500ms (next.js: 342ms, application-code: 158ms)
+ GET / 307 in 78ms (next.js: 5ms, application-code: 73ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 132ms (next.js: 14ms, application-code: 118ms)
+ GET /api/projects 401 in 798ms (next.js: 649ms, application-code: 149ms)
+ GET /api/auth/session 200 in 1824ms (next.js: 1789ms, application-code: 35ms)
+ GET /api/projects 401 in 41ms (next.js: 16ms, application-code: 25ms)
+ GET /pt/auth/signin 200 in 211ms (next.js: 24ms, application-code: 187ms)
+ GET /pt/auth/signin 200 in 102ms (next.js: 13ms, application-code: 88ms)
+ HEAD / 307 in 277ms (next.js: 8ms, application-code: 269ms)
+ GET / 307 in 70ms (next.js: 5ms, application-code: 65ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 137ms (next.js: 15ms, application-code: 123ms)
+ GET /api/auth/session 200 in 29ms (next.js: 15ms, application-code: 14ms)
+ GET /api/projects 401 in 27ms (next.js: 7ms, application-code: 20ms)
+ GET /api/auth/session 200 in 27ms (next.js: 7ms, application-code: 21ms)
+ GET /api/projects 401 in 33ms (next.js: 3ms, application-code: 30ms)
+ GET /pt/auth/signin 200 in 33ms (next.js: 9ms, application-code: 24ms)
+ GET /pt/auth/signin 200 in 24ms (next.js: 3ms, application-code: 21ms)
+ GET /api/auth/providers 200 in 35ms (next.js: 12ms, application-code: 24ms)
+ GET /api/auth/csrf 200 in 22ms (next.js: 5ms, application-code: 17ms)
+ POST /api/auth/callback/credentials 401 in 352ms (next.js: 5ms, application-code: 347ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 98ms (next.js: 16ms, application-code: 82ms)
+ GET /api/auth/session 200 in 49ms (next.js: 15ms, application-code: 34ms)
+ GET /api/auth/session 200 in 17ms (next.js: 3ms, application-code: 14ms)
+ GET /api/auth/session 200 in 36ms (next.js: 11ms, application-code: 24ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 82ms (next.js: 18ms, application-code: 64ms)
+ GET /api/auth/session 200 in 33ms (next.js: 13ms, application-code: 20ms)
+ GET /api/auth/session 200 in 25ms (next.js: 3ms, application-code: 22ms)
+ GET /api/auth/session 200 in 24ms (next.js: 5ms, application-code: 19ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 98ms (next.js: 20ms, application-code: 78ms)
+ GET /api/auth/session 200 in 43ms (next.js: 22ms, application-code: 21ms)
+ GET /api/auth/session 200 in 23ms (next.js: 7ms, application-code: 16ms)
+ GET /api/auth/session 200 in 27ms (next.js: 6ms, application-code: 20ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 544ms (next.js: 165ms, application-code: 379ms)
+ GET /pt/auth/signin 200 in 216ms (next.js: 23ms, application-code: 192ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 714ms (next.js: 16ms, application-code: 698ms)
+ GET /pt/auth/signin 200 in 627ms (next.js: 9ms, application-code: 618ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 768ms (next.js: 20ms, application-code: 748ms)
+ GET /pt/auth/signin 200 in 771ms (next.js: 105ms, application-code: 667ms)
+ GET /pt/auth/signin 200 in 773ms (next.js: 314ms, application-code: 459ms)
+ GET /pt/auth/signin 200 in 783ms (next.js: 219ms, application-code: 564ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 837ms (next.js: 13ms, application-code: 824ms)
+ GET /pt/auth/signin 200 in 674ms (next.js: 14ms, application-code: 660ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 705ms (next.js: 35ms, application-code: 670ms)
+ GET /pt/auth/signin 200 in 707ms (next.js: 126ms, application-code: 581ms)
+ GET /pt/auth/signin 200 in 707ms (next.js: 218ms, application-code: 489ms)
+ GET /pt/auth/signin 200 in 599ms (next.js: 215ms, application-code: 384ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 711ms (next.js: 15ms, application-code: 695ms)
+ GET /pt/auth/signin 200 in 621ms (next.js: 13ms, application-code: 608ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 701ms (next.js: 15ms, application-code: 685ms)
+ GET /pt/auth/signin 200 in 700ms (next.js: 99ms, application-code: 601ms)
+ GET /pt/auth/signin 200 in 612ms (next.js: 151ms, application-code: 461ms)
+ GET /pt/auth/signin 200 in 511ms (next.js: 143ms, application-code: 369ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 700ms (next.js: 14ms, application-code: 685ms)
+ GET /pt/auth/signin 200 in 602ms (next.js: 11ms, application-code: 591ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 664ms (next.js: 27ms, application-code: 636ms)
+ GET /pt/auth/signin 200 in 662ms (next.js: 113ms, application-code: 549ms)
+ GET /pt/auth/signin 200 in 563ms (next.js: 99ms, application-code: 464ms)
+ GET /pt/auth/signin 200 in 371ms (next.js: 15ms, application-code: 356ms)
+ GET /pt/auth/signin 200 in 245ms (next.js: 10ms, application-code: 235ms)
+ GET /pt/auth/signin 200 in 132ms (next.js: 13ms, application-code: 119ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1090ms (next.js: 229ms, application-code: 861ms)
+ GET /pt/auth/signin 200 in 435ms (next.js: 14ms, application-code: 421ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1239ms (next.js: 14ms, application-code: 1225ms)
+ GET /pt/auth/signin 200 in 1087ms (next.js: 14ms, application-code: 1073ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 996ms (next.js: 25ms, application-code: 971ms)
+ GET /pt/auth/signin 200 in 999ms (next.js: 287ms, application-code: 712ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1153ms (next.js: 443ms, application-code: 710ms)
+ GET /pt/auth/signin 200 in 1149ms (next.js: 582ms, application-code: 567ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1526ms (next.js: 19ms, application-code: 1507ms)
+ GET /pt/auth/signin 200 in 1384ms (next.js: 43ms, application-code: 1342ms)
+ GET /pt/auth/signin 200 in 1142ms (next.js: 77ms, application-code: 1065ms)
+ GET /pt/auth/signin 200 in 1100ms (next.js: 809ms, application-code: 291ms)
+ GET /pt/auth/signin 200 in 1131ms (next.js: 370ms, application-code: 760ms)
+ GET /pt/auth/signin 200 in 1157ms (next.js: 597ms, application-code: 559ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1847ms (next.js: 87ms, application-code: 1760ms)
+ GET /pt/auth/signin 200 in 1826ms (next.js: 234ms, application-code: 1592ms)
+ GET /pt/auth/signin 200 in 1387ms (next.js: 85ms, application-code: 1302ms)
+ GET /pt/auth/signin 200 in 1383ms (next.js: 656ms, application-code: 726ms)
+ GET /pt/auth/signin 200 in 578ms (next.js: 248ms, application-code: 329ms)
+ GET /pt/auth/signin 200 in 602ms (next.js: 77ms, application-code: 526ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1305ms (next.js: 18ms, application-code: 1287ms)
+ GET /pt/auth/signin 200 in 1312ms (next.js: 135ms, application-code: 1177ms)
+ GET /pt/auth/signin 200 in 976ms (next.js: 40ms, application-code: 935ms)
+ GET /pt/auth/signin 200 in 987ms (next.js: 220ms, application-code: 767ms)
+ GET /pt/auth/signin 200 in 555ms (next.js: 38ms, application-code: 517ms)
+ GET /pt/auth/signin 200 in 545ms (next.js: 201ms, application-code: 344ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 418ms (next.js: 17ms, application-code: 401ms)
+ GET /pt/auth/signin 200 in 293ms (next.js: 58ms, application-code: 235ms)
+ GET /api/health 200 in 202ms (next.js: 99ms, application-code: 104ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 633ms (next.js: 20ms, application-code: 613ms)
+ GET /api/auth/session 200 in 617ms (next.js: 458ms, application-code: 159ms)
+ GET /api/auth/providers 200 in 47ms (next.js: 14ms, application-code: 33ms)
+ GET /api/auth/csrf 200 in 58ms (next.js: 12ms, application-code: 46ms)
+ POST /api/auth/callback/credentials 200 in 370ms (next.js: 10ms, application-code: 360ms)
+ GET /api/auth/session 200 in 128ms (next.js: 38ms, application-code: 90ms)
+ GET /pt 200 in 832ms (next.js: 161ms, application-code: 671ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 2.9s (next.js: 62ms, application-code: 2.8s)
+ GET /api/auth/session 200 in 942ms (next.js: 648ms, application-code: 294ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 1358ms (next.js: 67ms, application-code: 1290ms)
+ GET /api/auth/session 200 in 69ms (next.js: 40ms, application-code: 29ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 996ms (next.js: 78ms, application-code: 918ms)
+ GET /api/auth/session 200 in 104ms (next.js: 32ms, application-code: 72ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1540ms (next.js: 69ms, application-code: 1471ms)
+ GET /api/auth/session 200 in 280ms (next.js: 195ms, application-code: 85ms)
+ GET /api/auth/providers 200 in 56ms (next.js: 12ms, application-code: 44ms)
+ GET /api/auth/csrf 200 in 90ms (next.js: 34ms, application-code: 56ms)
+ POST /api/auth/callback/credentials 200 in 922ms (next.js: 12ms, application-code: 909ms)
+ GET /api/auth/session 200 in 89ms (next.js: 15ms, application-code: 74ms)
+ GET /pt 200 in 616ms (next.js: 45ms, application-code: 571ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 1486ms (next.js: 32ms, application-code: 1454ms)
+ GET /api/auth/session 200 in 140ms (next.js: 49ms, application-code: 91ms)
+ GET /api/projects 200 in 1081ms (next.js: 487ms, application-code: 594ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 596ms (next.js: 105ms, application-code: 491ms)
+ GET /api/auth/session 200 in 175ms (next.js: 60ms, application-code: 114ms)
+ GET /api/projects 200 in 251ms (next.js: 10ms, application-code: 242ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 923ms (next.js: 114ms, application-code: 809ms)
+ GET /api/auth/session 200 in 539ms (next.js: 245ms, application-code: 294ms)
+ GET /api/projects 200 in 611ms (next.js: 56ms, application-code: 555ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 656ms (next.js: 65ms, application-code: 591ms)
+ GET /api/auth/session 200 in 104ms (next.js: 31ms, application-code: 74ms)
+ GET /api/projects 200 in 179ms (next.js: 7ms, application-code: 172ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 593ms (next.js: 64ms, application-code: 529ms)
+ GET /api/auth/session 200 in 59ms (next.js: 26ms, application-code: 33ms)
+ GET /api/projects 200 in 111ms (next.js: 8ms, application-code: 103ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 1368ms (next.js: 64ms, application-code: 1304ms)
+ GET /api/auth/session 200 in 140ms (next.js: 71ms, application-code: 69ms)
+ GET /api/projects 200 in 246ms (next.js: 13ms, application-code: 234ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 506ms (next.js: 34ms, application-code: 472ms)
+ GET /api/auth/session 200 in 126ms (next.js: 63ms, application-code: 63ms)
+ GET /api/projects 200 in 450ms (next.js: 14ms, application-code: 436ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 536ms (next.js: 35ms, application-code: 502ms)
+ GET /api/auth/session 200 in 177ms (next.js: 46ms, application-code: 131ms)
+ GET /api/projects 200 in 174ms (next.js: 13ms, application-code: 160ms)
+ GET /api/auth/providers 200 in 28ms (next.js: 14ms, application-code: 14ms)
+ GET /api/auth/csrf 200 in 26ms (next.js: 6ms, application-code: 21ms)
+ POST /api/auth/callback/credentials 200 in 159ms (next.js: 4ms, application-code: 154ms)
+ GET /api/auth/session 200 in 18ms (next.js: 5ms, application-code: 13ms)
+ GET /pt 200 in 69ms (next.js: 20ms, application-code: 49ms)
+ GET /api/projects 200 in 256ms (next.js: 6ms, application-code: 249ms)
+ GET /api/auth/session 200 in 23ms (next.js: 11ms, application-code: 12ms)
+ GET /api/auth/session 200 in 13ms (next.js: 3ms, application-code: 10ms)
+ GET /api/projects 200 in 177ms (next.js: 2ms, application-code: 174ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 96ms (next.js: 14ms, application-code: 82ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 116ms (next.js: 11ms, application-code: 105ms)
+ GET /api/auth/session 200 in 46ms (next.js: 26ms, application-code: 19ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 345ms (next.js: 25ms, application-code: 320ms)
+ GET /api/auth/session 200 in 45ms (next.js: 25ms, application-code: 20ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 616ms (next.js: 26ms, application-code: 590ms)
+ GET /api/auth/session 200 in 45ms (next.js: 24ms, application-code: 21ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 418ms (next.js: 34ms, application-code: 384ms)
+ GET /api/auth/session 200 in 46ms (next.js: 22ms, application-code: 24ms)
+ GET /api/auth/providers 200 in 35ms (next.js: 13ms, application-code: 22ms)
+ GET /api/auth/csrf 200 in 18ms (next.js: 4ms, application-code: 14ms)
+ POST /api/auth/callback/credentials 200 in 216ms (next.js: 2ms, application-code: 213ms)
+ GET /api/auth/session 200 in 27ms (next.js: 4ms, application-code: 23ms)
+ GET /pt 200 in 77ms (next.js: 16ms, application-code: 61ms)
+ GET /api/projects 200 in 131ms (next.js: 4ms, application-code: 126ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 479ms (next.js: 23ms, application-code: 456ms)
+ GET /api/auth/session 200 in 49ms (next.js: 26ms, application-code: 22ms)
+ GET /api/projects 200 in 59ms (next.js: 15ms, application-code: 44ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 205ms (next.js: 35ms, application-code: 170ms)
+ GET /api/auth/session 200 in 46ms (next.js: 25ms, application-code: 21ms)
+ GET /api/projects 200 in 46ms (next.js: 4ms, application-code: 42ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 411ms (next.js: 38ms, application-code: 373ms)
+ GET /api/auth/session 200 in 50ms (next.js: 29ms, application-code: 21ms)
+ GET /api/projects 200 in 67ms (next.js: 7ms, application-code: 60ms)
+[layout] Rendering for locale segment: pt
+ GET /pt?view=kanban 200 in 216ms (next.js: 23ms, application-code: 193ms)
+ GET /api/auth/session 200 in 47ms (next.js: 21ms, application-code: 26ms)
+ GET /api/projects 200 in 207ms (next.js: 17ms, application-code: 190ms)
+[layout] Rendering for locale segment: pt
+ GET /pt?view=gantt 200 in 169ms (next.js: 22ms, application-code: 147ms)
+ GET /api/auth/session 200 in 41ms (next.js: 22ms, application-code: 19ms)
+ GET /api/projects 200 in 43ms (next.js: 5ms, application-code: 38ms)
+[layout] Rendering for locale segment: pt
+ GET /pt?view=calendar 200 in 236ms (next.js: 27ms, application-code: 209ms)
+ GET /api/auth/session 200 in 40ms (next.js: 21ms, application-code: 19ms)
+ GET /api/projects 200 in 101ms (next.js: 4ms, application-code: 97ms)
+[layout] Rendering for locale segment: pt
+ GET /pt?view=analytics 200 in 258ms (next.js: 28ms, application-code: 231ms)
+ GET /api/auth/session 200 in 40ms (next.js: 22ms, application-code: 18ms)
+ GET /api/projects 200 in 39ms (next.js: 5ms, application-code: 35ms)
+[layout] Rendering for locale segment: pt
+ GET /pt?view=reports 200 in 180ms (next.js: 28ms, application-code: 152ms)
+ GET /api/auth/session 200 in 42ms (next.js: 23ms, application-code: 19ms)
+ GET /api/projects 200 in 49ms (next.js: 5ms, application-code: 44ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 185ms (next.js: 30ms, application-code: 154ms)
+ GET /api/auth/session 200 in 49ms (next.js: 23ms, application-code: 26ms)
+ GET /api/projects 200 in 45ms (next.js: 4ms, application-code: 41ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 390ms (next.js: 20ms, application-code: 370ms)
+ GET /api/auth/session 200 in 40ms (next.js: 23ms, application-code: 17ms)
+ GET /api/projects 200 in 45ms (next.js: 4ms, application-code: 41ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 167ms (next.js: 16ms, application-code: 151ms)
+ GET /api/auth/session 200 in 36ms (next.js: 17ms, application-code: 19ms)
+ GET /api/projects 200 in 68ms (next.js: 5ms, application-code: 63ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 113ms (next.js: 12ms, application-code: 100ms)
+ GET /api/auth/session 200 in 83ms (next.js: 45ms, application-code: 38ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 342ms (next.js: 32ms, application-code: 310ms)
+ GET /api/auth/session 200 in 53ms (next.js: 34ms, application-code: 19ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 320ms (next.js: 27ms, application-code: 293ms)
+ GET /api/auth/session 200 in 57ms (next.js: 33ms, application-code: 24ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 543ms (next.js: 19ms, application-code: 524ms)
+ GET /api/auth/session 200 in 47ms (next.js: 31ms, application-code: 16ms)
+ GET /api/auth/providers 200 in 40ms (next.js: 19ms, application-code: 21ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 101ms (next.js: 10ms, application-code: 92ms)
+ GET /api/auth/session 200 in 32ms (next.js: 18ms, application-code: 14ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 361ms (next.js: 26ms, application-code: 335ms)
+ GET /api/auth/session 200 in 50ms (next.js: 30ms, application-code: 20ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 322ms (next.js: 25ms, application-code: 297ms)
+ GET /api/auth/session 200 in 49ms (next.js: 26ms, application-code: 23ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 560ms (next.js: 24ms, application-code: 537ms)
+ GET /api/auth/session 200 in 57ms (next.js: 35ms, application-code: 21ms)
+ GET /api/auth/providers 200 in 37ms (next.js: 12ms, application-code: 25ms)
+ GET /api/auth/csrf 200 in 19ms (next.js: 5ms, application-code: 14ms)
+ POST /api/auth/callback/credentials 200 in 155ms (next.js: 3ms, application-code: 152ms)
+ GET /api/auth/session 200 in 20ms (next.js: 6ms, application-code: 14ms)
+ GET /pt 200 in 77ms (next.js: 12ms, application-code: 65ms)
+ GET /api/projects 200 in 93ms (next.js: 4ms, application-code: 89ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 287ms (next.js: 24ms, application-code: 263ms)
+ GET /api/auth/session 200 in 48ms (next.js: 26ms, application-code: 21ms)
+ GET /api/projects 200 in 44ms (next.js: 5ms, application-code: 39ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 247ms (next.js: 22ms, application-code: 225ms)
+ GET /api/auth/session 200 in 51ms (next.js: 30ms, application-code: 21ms)
+ GET /api/projects 200 in 93ms (next.js: 6ms, application-code: 87ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 209ms (next.js: 23ms, application-code: 186ms)
+ GET /api/auth/session 200 in 92ms (next.js: 58ms, application-code: 34ms)
+ GET /api/projects 200 in 114ms (next.js: 8ms, application-code: 106ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 275ms (next.js: 28ms, application-code: 246ms)
+ GET /api/auth/session 200 in 54ms (next.js: 34ms, application-code: 20ms)
+ GET /api/projects 200 in 74ms (next.js: 7ms, application-code: 67ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 120ms (next.js: 13ms, application-code: 107ms)
+ GET /api/auth/session 200 in 22ms (next.js: 13ms, application-code: 9ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 253ms (next.js: 21ms, application-code: 232ms)
+ GET /api/auth/session 200 in 46ms (next.js: 28ms, application-code: 18ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 367ms (next.js: 22ms, application-code: 345ms)
+ GET /api/auth/session 200 in 41ms (next.js: 26ms, application-code: 15ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 216ms (next.js: 21ms, application-code: 196ms)
+ GET /api/auth/session 200 in 68ms (next.js: 21ms, application-code: 47ms)
+ GET /api/auth/providers 200 in 39ms (next.js: 13ms, application-code: 25ms)
+ GET /api/auth/csrf 200 in 35ms (next.js: 4ms, application-code: 32ms)
+ POST /api/auth/callback/credentials 200 in 157ms (next.js: 4ms, application-code: 153ms)
+ GET /api/auth/session 200 in 29ms (next.js: 4ms, application-code: 25ms)
+ GET /pt 200 in 48ms (next.js: 14ms, application-code: 35ms)
+ GET /api/projects 200 in 186ms (next.js: 4ms, application-code: 182ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 295ms (next.js: 24ms, application-code: 271ms)
+ GET /api/auth/session 200 in 43ms (next.js: 29ms, application-code: 14ms)
+ GET /api/projects 200 in 69ms (next.js: 5ms, application-code: 64ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 282ms (next.js: 28ms, application-code: 255ms)
+ GET /api/auth/session 200 in 43ms (next.js: 21ms, application-code: 23ms)
+ GET /api/projects 200 in 82ms (next.js: 11ms, application-code: 71ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 231ms (next.js: 34ms, application-code: 197ms)
+ GET /api/auth/session 200 in 57ms (next.js: 26ms, application-code: 31ms)
+ GET /api/projects 200 in 51ms (next.js: 7ms, application-code: 45ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 246ms (next.js: 32ms, application-code: 214ms)
+ GET /api/auth/session 200 in 51ms (next.js: 31ms, application-code: 20ms)
+ GET /api/projects 200 in 62ms (next.js: 4ms, application-code: 59ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 109ms (next.js: 14ms, application-code: 95ms)
+ GET /api/auth/session 200 in 39ms (next.js: 25ms, application-code: 13ms)
+ GET /api/projects 200 in 64ms (next.js: 6ms, application-code: 59ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 140ms (next.js: 26ms, application-code: 114ms)
+ GET /api/auth/session 200 in 35ms (next.js: 19ms, application-code: 16ms)
+ GET /api/projects 200 in 31ms (next.js: 4ms, application-code: 28ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 246ms (next.js: 29ms, application-code: 216ms)
+ GET /api/auth/session 200 in 52ms (next.js: 23ms, application-code: 30ms)
+ GET /api/projects 200 in 41ms (next.js: 3ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 152ms (next.js: 25ms, application-code: 127ms)
+ GET /api/auth/session 200 in 40ms (next.js: 22ms, application-code: 17ms)
+ GET /api/projects 200 in 37ms (next.js: 4ms, application-code: 33ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 145ms (next.js: 26ms, application-code: 119ms)
+ GET /api/auth/session 200 in 40ms (next.js: 20ms, application-code: 20ms)
+ GET /api/projects 200 in 38ms (next.js: 4ms, application-code: 34ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 350ms (next.js: 13ms, application-code: 338ms)
+ GET /api/auth/session 200 in 36ms (next.js: 20ms, application-code: 15ms)
+ GET /api/projects 200 in 41ms (next.js: 4ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 185ms (next.js: 17ms, application-code: 168ms)
+ GET /api/auth/session 200 in 43ms (next.js: 19ms, application-code: 23ms)
+ GET /api/projects 200 in 49ms (next.js: 4ms, application-code: 46ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 78ms (next.js: 8ms, application-code: 70ms)
+ GET /api/auth/session 200 in 33ms (next.js: 13ms, application-code: 20ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 239ms (next.js: 29ms, application-code: 211ms)
+ GET /api/auth/session 200 in 39ms (next.js: 28ms, application-code: 11ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 194ms (next.js: 16ms, application-code: 178ms)
+ GET /api/auth/session 200 in 36ms (next.js: 20ms, application-code: 17ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 227ms (next.js: 22ms, application-code: 205ms)
+ GET /api/auth/session 200 in 40ms (next.js: 21ms, application-code: 19ms)
+ GET /api/auth/providers 200 in 32ms (next.js: 11ms, application-code: 21ms)
+ GET /api/auth/csrf 200 in 17ms (next.js: 1933µs, application-code: 15ms)
+ POST /api/auth/callback/credentials 200 in 148ms (next.js: 3ms, application-code: 146ms)
+ GET /api/auth/session 200 in 33ms (next.js: 4ms, application-code: 28ms)
+ GET /pt 200 in 52ms (next.js: 16ms, application-code: 36ms)
+ GET /api/projects 200 in 109ms (next.js: 4ms, application-code: 105ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 175ms (next.js: 25ms, application-code: 150ms)
+ GET /api/auth/session 200 in 43ms (next.js: 32ms, application-code: 11ms)
+ GET /api/projects 200 in 54ms (next.js: 3ms, application-code: 50ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 187ms (next.js: 27ms, application-code: 160ms)
+ GET /api/auth/session 200 in 34ms (next.js: 20ms, application-code: 14ms)
+ GET /api/projects 200 in 53ms (next.js: 5ms, application-code: 48ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 219ms (next.js: 27ms, application-code: 192ms)
+ GET /api/auth/session 200 in 53ms (next.js: 34ms, application-code: 19ms)
+ GET /api/projects 200 in 65ms (next.js: 8ms, application-code: 57ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 223ms (next.js: 18ms, application-code: 205ms)
+ GET /api/auth/session 200 in 48ms (next.js: 29ms, application-code: 19ms)
+ GET /api/projects 200 in 42ms (next.js: 5ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 102ms (next.js: 10ms, application-code: 92ms)
+ GET /api/auth/session 200 in 33ms (next.js: 19ms, application-code: 14ms)
+ GET /api/projects 200 in 39ms (next.js: 5ms, application-code: 34ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 153ms (next.js: 30ms, application-code: 124ms)
+ GET /api/auth/session 200 in 41ms (next.js: 23ms, application-code: 18ms)
+ GET /api/projects 200 in 41ms (next.js: 3ms, application-code: 38ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 153ms (next.js: 31ms, application-code: 122ms)
+ GET /api/auth/session 200 in 34ms (next.js: 20ms, application-code: 14ms)
+ GET /api/projects 200 in 42ms (next.js: 4ms, application-code: 38ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 191ms (next.js: 28ms, application-code: 163ms)
+ GET /api/auth/session 200 in 43ms (next.js: 23ms, application-code: 20ms)
+ GET /api/projects 200 in 44ms (next.js: 5ms, application-code: 40ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 149ms (next.js: 25ms, application-code: 124ms)
+ GET /api/auth/session 200 in 39ms (next.js: 23ms, application-code: 16ms)
+ GET /api/projects 200 in 40ms (next.js: 3ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 276ms (next.js: 14ms, application-code: 263ms)
+ GET /api/auth/session 200 in 35ms (next.js: 18ms, application-code: 17ms)
+ GET /api/projects 200 in 32ms (next.js: 3ms, application-code: 29ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 190ms (next.js: 23ms, application-code: 167ms)
+ GET /api/auth/session 200 in 33ms (next.js: 20ms, application-code: 13ms)
+ GET /api/projects 200 in 40ms (next.js: 5ms, application-code: 35ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 83ms (next.js: 10ms, application-code: 73ms)
+ GET /api/auth/session 200 in 23ms (next.js: 12ms, application-code: 11ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 228ms (next.js: 24ms, application-code: 204ms)
+ GET /api/auth/session 200 in 36ms (next.js: 18ms, application-code: 18ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 206ms (next.js: 28ms, application-code: 178ms)
+ GET /api/auth/session 200 in 38ms (next.js: 20ms, application-code: 17ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 336ms (next.js: 29ms, application-code: 308ms)
+ GET /api/auth/session 200 in 44ms (next.js: 24ms, application-code: 19ms)
+ GET /api/auth/providers 200 in 34ms (next.js: 11ms, application-code: 22ms)
+ GET /api/auth/csrf 200 in 20ms (next.js: 2ms, application-code: 18ms)
+ POST /api/auth/callback/credentials 200 in 136ms (next.js: 3ms, application-code: 133ms)
+ GET /api/auth/session 200 in 14ms (next.js: 4ms, application-code: 11ms)
+ GET /pt 200 in 49ms (next.js: 17ms, application-code: 33ms)
+ GET /api/projects 200 in 94ms (next.js: 3ms, application-code: 91ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 216ms (next.js: 23ms, application-code: 194ms)
+ GET /api/auth/session 200 in 30ms (next.js: 18ms, application-code: 13ms)
+ GET /api/projects 200 in 42ms (next.js: 4ms, application-code: 38ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 239ms (next.js: 33ms, application-code: 206ms)
+ GET /api/auth/session 200 in 38ms (next.js: 19ms, application-code: 19ms)
+ GET /api/projects 200 in 48ms (next.js: 6ms, application-code: 41ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 339ms (next.js: 30ms, application-code: 309ms)
+ GET /api/auth/session 200 in 53ms (next.js: 31ms, application-code: 23ms)
+ GET /api/projects 200 in 53ms (next.js: 8ms, application-code: 45ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 151ms (next.js: 29ms, application-code: 122ms)
+ GET /api/auth/session 200 in 51ms (next.js: 30ms, application-code: 21ms)
+ GET /api/projects 200 in 72ms (next.js: 15ms, application-code: 58ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 98ms (next.js: 10ms, application-code: 88ms)
+ GET /api/auth/session 200 in 35ms (next.js: 21ms, application-code: 14ms)
+ GET /api/projects 200 in 40ms (next.js: 3ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 200ms (next.js: 22ms, application-code: 177ms)
+ GET /api/auth/session 200 in 33ms (next.js: 18ms, application-code: 15ms)
+ GET /api/projects 200 in 29ms (next.js: 5ms, application-code: 24ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 214ms (next.js: 29ms, application-code: 184ms)
+ GET /api/auth/session 200 in 47ms (next.js: 23ms, application-code: 24ms)
+ GET /api/projects 200 in 23ms (next.js: 4ms, application-code: 19ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 114ms (next.js: 13ms, application-code: 101ms)
+ GET /api/auth/session 200 in 43ms (next.js: 24ms, application-code: 19ms)
+ GET /api/projects 200 in 42ms (next.js: 4ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 338ms (next.js: 29ms, application-code: 309ms)
+ GET /api/auth/session 200 in 47ms (next.js: 27ms, application-code: 20ms)
+ GET /api/projects 200 in 43ms (next.js: 3ms, application-code: 40ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 141ms (next.js: 16ms, application-code: 126ms)
+ GET /api/auth/session 200 in 45ms (next.js: 35ms, application-code: 9ms)
+ GET /api/projects 200 in 20ms (next.js: 3ms, application-code: 18ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 178ms (next.js: 23ms, application-code: 155ms)
+ GET /api/auth/session 200 in 42ms (next.js: 22ms, application-code: 20ms)
+ GET /api/projects 200 in 42ms (next.js: 4ms, application-code: 38ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 81ms (next.js: 9ms, application-code: 72ms)
+ GET /api/auth/session 200 in 35ms (next.js: 17ms, application-code: 18ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 153ms (next.js: 30ms, application-code: 123ms)
+ GET /api/auth/session 200 in 49ms (next.js: 34ms, application-code: 15ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 180ms (next.js: 28ms, application-code: 152ms)
+ GET /api/auth/session 200 in 37ms (next.js: 23ms, application-code: 14ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 332ms (next.js: 29ms, application-code: 303ms)
+ GET /api/auth/session 200 in 41ms (next.js: 21ms, application-code: 20ms)
+ GET /api/auth/providers 200 in 34ms (next.js: 14ms, application-code: 20ms)
+ GET /api/auth/csrf 200 in 13ms (next.js: 1545µs, application-code: 12ms)
+ POST /api/auth/callback/credentials 200 in 165ms (next.js: 2ms, application-code: 163ms)
+ GET /api/auth/session 200 in 17ms (next.js: 3ms, application-code: 14ms)
+ GET /pt 200 in 45ms (next.js: 12ms, application-code: 33ms)
+ GET /api/projects 200 in 86ms (next.js: 3ms, application-code: 83ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 155ms (next.js: 22ms, application-code: 133ms)
+ GET /api/auth/session 200 in 42ms (next.js: 21ms, application-code: 21ms)
+ GET /api/projects 200 in 56ms (next.js: 3ms, application-code: 52ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 223ms (next.js: 37ms, application-code: 186ms)
+ GET /api/auth/session 200 in 52ms (next.js: 22ms, application-code: 30ms)
+ GET /api/projects 200 in 61ms (next.js: 4ms, application-code: 57ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 278ms (next.js: 42ms, application-code: 237ms)
+ GET /api/auth/session 200 in 48ms (next.js: 25ms, application-code: 23ms)
+ GET /api/projects 200 in 42ms (next.js: 5ms, application-code: 38ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 187ms (next.js: 39ms, application-code: 149ms)
+ GET /api/auth/session 200 in 32ms (next.js: 20ms, application-code: 13ms)
+ GET /api/projects 200 in 70ms (next.js: 4ms, application-code: 66ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 98ms (next.js: 11ms, application-code: 87ms)
+ GET /api/auth/session 200 in 38ms (next.js: 21ms, application-code: 17ms)
+ GET /api/projects 200 in 51ms (next.js: 4ms, application-code: 47ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 207ms (next.js: 28ms, application-code: 180ms)
+ GET /api/auth/session 200 in 37ms (next.js: 20ms, application-code: 17ms)
+ GET /api/projects 200 in 26ms (next.js: 3ms, application-code: 23ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 232ms (next.js: 30ms, application-code: 201ms)
+ GET /api/auth/session 200 in 40ms (next.js: 27ms, application-code: 13ms)
+ GET /api/projects 200 in 44ms (next.js: 4ms, application-code: 40ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 141ms (next.js: 13ms, application-code: 128ms)
+ GET /api/auth/session 200 in 47ms (next.js: 23ms, application-code: 24ms)
+ GET /api/projects 200 in 31ms (next.js: 5ms, application-code: 26ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 196ms (next.js: 49ms, application-code: 148ms)
+ GET /api/auth/session 200 in 39ms (next.js: 18ms, application-code: 20ms)
+ GET /api/projects 200 in 73ms (next.js: 5ms, application-code: 67ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 115ms (next.js: 13ms, application-code: 102ms)
+ GET /api/auth/session 200 in 36ms (next.js: 19ms, application-code: 17ms)
+ GET /api/projects 200 in 31ms (next.js: 3ms, application-code: 27ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 238ms (next.js: 15ms, application-code: 223ms)
+ GET /api/auth/session 200 in 35ms (next.js: 20ms, application-code: 14ms)
+ GET /api/projects 200 in 53ms (next.js: 13ms, application-code: 41ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 77ms (next.js: 8ms, application-code: 68ms)
+ GET /api/auth/session 200 in 32ms (next.js: 13ms, application-code: 19ms)
+[layout] Rendering for locale segment: en
+ GET /en/auth/signin 200 in 168ms (next.js: 29ms, application-code: 139ms)
+ GET /api/auth/session 200 in 36ms (next.js: 20ms, application-code: 16ms)
+[layout] Rendering for locale segment: es
+ GET /es/auth/signin 200 in 214ms (next.js: 26ms, application-code: 188ms)
+ GET /api/auth/session 200 in 35ms (next.js: 20ms, application-code: 16ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 347ms (next.js: 28ms, application-code: 319ms)
+ GET /api/auth/session 200 in 30ms (next.js: 19ms, application-code: 11ms)
+ GET /api/auth/providers 200 in 28ms (next.js: 13ms, application-code: 15ms)
+ GET /api/auth/csrf 200 in 40ms (next.js: 17ms, application-code: 22ms)
+ POST /api/auth/callback/credentials 200 in 152ms (next.js: 9ms, application-code: 143ms)
+ GET /api/auth/session 200 in 18ms (next.js: 4ms, application-code: 14ms)
+ GET /pt 200 in 65ms (next.js: 21ms, application-code: 44ms)
+ GET /api/projects 200 in 88ms (next.js: 3ms, application-code: 85ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 144ms (next.js: 20ms, application-code: 124ms)
+ GET /api/auth/session 200 in 43ms (next.js: 23ms, application-code: 19ms)
+ GET /api/projects 200 in 59ms (next.js: 3ms, application-code: 55ms)
+[layout] Rendering for locale segment: en
+ GET /en 200 in 211ms (next.js: 34ms, application-code: 178ms)
+ GET /api/auth/session 200 in 46ms (next.js: 26ms, application-code: 20ms)
+ GET /api/projects 200 in 53ms (next.js: 3ms, application-code: 49ms)
+[layout] Rendering for locale segment: es
+ GET /es 200 in 217ms (next.js: 30ms, application-code: 187ms)
+ GET /api/auth/session 200 in 63ms (next.js: 36ms, application-code: 26ms)
+ GET /api/projects 200 in 62ms (next.js: 6ms, application-code: 56ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 145ms (next.js: 28ms, application-code: 117ms)
+ GET /api/auth/session 200 in 49ms (next.js: 30ms, application-code: 19ms)
+ GET /api/projects 200 in 48ms (next.js: 4ms, application-code: 44ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 107ms (next.js: 10ms, application-code: 97ms)
+ GET /api/auth/session 200 in 64ms (next.js: 25ms, application-code: 39ms)
+ GET /api/projects 200 in 49ms (next.js: 3ms, application-code: 45ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 148ms (next.js: 33ms, application-code: 115ms)
+ GET /api/auth/session 200 in 42ms (next.js: 21ms, application-code: 21ms)
+ GET /api/projects 200 in 30ms (next.js: 6ms, application-code: 24ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 257ms (next.js: 33ms, application-code: 224ms)
+ GET /api/auth/session 200 in 44ms (next.js: 28ms, application-code: 16ms)
+ GET /api/projects 200 in 429ms (next.js: 4ms, application-code: 424ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 114ms (next.js: 11ms, application-code: 103ms)
+ GET /api/auth/session 200 in 46ms (next.js: 27ms, application-code: 20ms)
+ GET /api/projects 200 in 58ms (next.js: 3ms, application-code: 55ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 154ms (next.js: 29ms, application-code: 125ms)
+ GET /api/auth/session 200 in 36ms (next.js: 22ms, application-code: 14ms)
+ GET /api/projects 200 in 51ms (next.js: 4ms, application-code: 47ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 110ms (next.js: 16ms, application-code: 94ms)
+ GET /api/auth/session 200 in 33ms (next.js: 18ms, application-code: 15ms)
+ GET /api/projects 200 in 40ms (next.js: 4ms, application-code: 37ms)
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 374ms (next.js: 22ms, application-code: 352ms)
+ GET /api/auth/session 200 in 43ms (next.js: 20ms, application-code: 23ms)
+ GET /api/projects 200 in 27ms (next.js: 6ms, application-code: 21ms)
+ GET /api/auth/session 200 in 278ms (next.js: 57ms, application-code: 222ms)
+ GET /api/auth/session 200 in 33ms (next.js: 11ms, application-code: 22ms)
+ GET /api/auth/session 200 in 24ms (next.js: 3ms, application-code: 21ms)
+ GET /api/auth/session 200 in 19ms (next.js: 6ms, application-code: 14ms)
+ GET /api/auth/session 200 in 32ms (next.js: 16ms, application-code: 16ms)
+ GET /api/projects 200 in 601ms (next.js: 9ms, application-code: 592ms)
+✓ Compiled in 423ms
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+✓ Compiled in 482ms
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 2.4s (next.js: 1339ms, application-code: 1041ms)
+ GET /pt 200 in 2.4s (next.js: 584ms, application-code: 1819ms)
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt 200 in 1742ms (next.js: 190ms, application-code: 1552ms)
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1275ms (next.js: 50ms, application-code: 1225ms)
+ GET /pt 200 in 892ms (next.js: 49ms, application-code: 843ms)
+ GET /pt/auth/signin 200 in 520ms (next.js: 69ms, application-code: 450ms)
+ GET /pt 200 in 705ms (next.js: 25ms, application-code: 681ms)
+ GET /pt/auth/signin 200 in 173ms (next.js: 13ms, application-code: 161ms)
+✓ Compiled in 179ms
+[layout] Rendering for locale segment: pt
+[layout] Rendering for locale segment: pt
+ GET /pt/auth/signin 200 in 1557ms (next.js: 451ms, application-code: 1106ms)
+ GET /pt 200 in 1576ms (next.js: 1194ms, application-code: 382ms)
