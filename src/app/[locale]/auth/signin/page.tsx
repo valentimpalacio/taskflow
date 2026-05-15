@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import { CheckSquare, Mail, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
-export default function SignIn() {
+function SignInForm() {
   const t = useTranslations('auth');
   const searchParams = useSearchParams();
   const [email, setEmail] = useState(() => searchParams?.get('email') ?? '');
@@ -114,5 +114,13 @@ export default function SignIn() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function SignIn() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }
