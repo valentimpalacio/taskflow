@@ -39,9 +39,9 @@ function DashboardContent() {
     // Never redirect during 'loading' — this avoids false redirects when
     // the SessionProvider remounts after a locale change.
     if (status === 'unauthenticated') {
-      router.push('/auth/signin');
+      router.push(`/${locale}/auth/signin`);
     }
-  }, [status, router]);
+  }, [status, router, locale]);
 
   // Don't render anything until we know auth status
   if (status === 'loading') {

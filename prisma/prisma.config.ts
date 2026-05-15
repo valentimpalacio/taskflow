@@ -1,8 +1,8 @@
 import 'dotenv/config';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
+import { PrismaNeon } from '@prisma/adapter-neon';
+import { Pool } from '@neondatabase/serverless';
 
 export default {
   connectionString: process.env.DATABASE_URL,
-  adapter: new PrismaPg(new Pool({ connectionString: process.env.DATABASE_URL })),
+  adapter: new PrismaNeon(new Pool({ connectionString: process.env.DATABASE_URL })),
 };
