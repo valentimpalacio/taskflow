@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/i18n/navigation';
+import { useParams } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { CheckSquare, Mail, Lock, User, AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -30,7 +31,7 @@ export default function SignUp() {
     });
     if (res.ok) {
       setSuccess(t('accountCreated'));
-      setTimeout(() => router.push(`/${locale}/auth/signin`), 2000);
+      setTimeout(() => router.push('/auth/signin'), 2000);
     } else {
       const data = await res.json();
       setError(data.error || t('somethingWentWrong'));
@@ -125,7 +126,7 @@ export default function SignUp() {
 
           <p className="text-center text-sm text-slate-500 dark:text-slate-400">
             {t('haveAccount')}{' '}
-            <Link href={`/${locale}/auth/signin`} className="text-primary-600 hover:text-primary-700 dark:text-primary-400 font-semibold hover:underline">
+            <Link href='/auth/signin' className="text-primary-600 hover:text-primary-700 dark:text-primary-400 font-semibold hover:underline">
               {t('signin')}
             </Link>
           </p>

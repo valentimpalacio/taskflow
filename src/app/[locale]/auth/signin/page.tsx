@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useParams, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { CheckSquare, Mail, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -107,7 +107,7 @@ export default function SignIn() {
 
           <p className="text-center text-sm text-slate-500 dark:text-slate-400">
             {t('noAccount')}{' '}
-            <Link href={`/${locale}/auth/signup`} className="text-primary-600 hover:text-primary-700 dark:text-primary-400 font-semibold hover:underline">
+            <Link href='/auth/signup' className="text-primary-600 hover:text-primary-700 dark:text-primary-400 font-semibold hover:underline">
               {t('signup')}
             </Link>
           </p>

@@ -38,10 +38,11 @@ function DashboardContent() {
     // Only redirect when we are CERTAIN the user is not authenticated.
     // Never redirect during 'loading' — this avoids false redirects when
     // the SessionProvider remounts after a locale change.
+    // Note: router from @/i18n/navigation auto-prepends the locale prefix.
     if (status === 'unauthenticated') {
-      router.push(`/${locale}/auth/signin`);
+      router.push('/auth/signin');
     }
-  }, [status, router, locale]);
+  }, [status, router]);
 
   // Don't render anything until we know auth status
   if (status === 'loading') {
