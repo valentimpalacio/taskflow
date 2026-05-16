@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -206,8 +206,8 @@ function DashboardContent() {
 
 export default function Dashboard() {
   return (
-    <ToastProvider>
+    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
       <DashboardContent />
-    </ToastProvider>
+    </Suspense>
   );
 }
