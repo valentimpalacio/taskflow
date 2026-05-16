@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { languages, Language, defaultLanguage } from '@/i18n/config';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { SessionProvider } from '@/components/SessionProvider';
 import { ToastProvider } from '@/components/dashboard/Toast';
 import QueryProvider from '@/components/QueryProvider';
 
@@ -77,12 +76,10 @@ export default async function LocaleLayout({
   }
 
   return (
-    <SessionProvider>
-      <NextIntlClientProvider locale={validLocale} messages={messages}>
-        <ToastProvider>
-          <QueryProvider>{children}</QueryProvider>
-        </ToastProvider>
-      </NextIntlClientProvider>
-    </SessionProvider>
+    <NextIntlClientProvider locale={validLocale} messages={messages}>
+      <ToastProvider>
+        <QueryProvider>{children}</QueryProvider>
+      </ToastProvider>
+    </NextIntlClientProvider>
   );
 }
