@@ -77,16 +77,12 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={validLocale}>
-      <body>
-        <SessionProvider>
-          <NextIntlClientProvider locale={validLocale} messages={messages}>
-            <ToastProvider>
-              <QueryProvider>{children}</QueryProvider>
-            </ToastProvider>
-          </NextIntlClientProvider>
-        </SessionProvider>
-      </body>
-    </html>
+    <SessionProvider>
+      <NextIntlClientProvider locale={validLocale} messages={messages}>
+        <ToastProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </ToastProvider>
+      </NextIntlClientProvider>
+    </SessionProvider>
   );
 }
