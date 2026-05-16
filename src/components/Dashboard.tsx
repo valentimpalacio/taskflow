@@ -34,6 +34,27 @@ function DashboardContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
+  // ── All hooks MUST be called before any conditional returns ──────────────
+  // Moving useMemo hooks here prevents React Error #310 (hook count mismatch)
+  // that occurred when the locale changed and caused a re-render mid-lifecycle.
+  const filteredProjects = useMemo(() => {
+    if (selectedProjectId === 'all') {
+      return projects;
+    }
+    return projects.filter(project => project.id === selectedProjectId);
+  }, [projects, selectedProjectId]);
+
+  const allTasks = useMemo(() => {
+    return filteredProjects.flatMap(project =>
+      (project.tasks || []).map(task => ({
+        ...task,
+        projectName: project.name,
+        projectId: project.id
+      }))
+    );
+  }, [filteredProjects]);
+  // ────────────────────────────────────────────────────────────────────────
+
   useEffect(() => {
     // Only redirect when we are CERTAIN the user is not authenticated.
     // Never redirect during 'loading' — this avoids false redirects when
@@ -56,23 +77,6 @@ function DashboardContent() {
   const refreshData = () => {
     queryClient.invalidateQueries({ queryKey: ['projects'] });
   };
-
-  const filteredProjects = useMemo(() => {
-    if (selectedProjectId === 'all') {
-      return projects;
-    }
-    return projects.filter(project => project.id === selectedProjectId);
-  }, [projects, selectedProjectId]);
-
-  const allTasks = useMemo(() => {
-    return filteredProjects.flatMap(project => 
-      (project.tasks || []).map(task => ({
-        ...task,
-        projectName: project.name,
-        projectId: project.id
-      }))
-    );
-  }, [filteredProjects]);
 
   const handleAddDependency = async (dependentTaskId: string, blockingTaskId: string) => {
     try {
