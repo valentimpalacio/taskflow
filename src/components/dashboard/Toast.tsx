@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useCallback,
+  useRef,
   ReactNode,
   JSX,
 } from 'react';
@@ -30,10 +31,10 @@ export function useToast() {
 
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
-  let counter = 0;
+  const counterRef = useRef(0);
 
   const showToast = useCallback((message: string, type: ToastType = 'info') => {
-    const id = ++counter;
+    const id = ++counterRef.current;
     setToasts((prev) => [...prev, { id, message, type }]);
     setTimeout(
       () => setToasts((prev) => prev.filter((t) => t.id !== id)),

@@ -78,11 +78,11 @@ export default async function LocaleLayout({
   return (
     <html lang={validLocale}>
       <body>
-        <NextIntlClientProvider locale={validLocale} messages={messages}>
-          <QueryProvider>
-            <SessionProvider>{children}</SessionProvider>
-          </QueryProvider>
-        </NextIntlClientProvider>
+        <SessionProvider>
+          <NextIntlClientProvider key={validLocale} locale={validLocale} messages={messages}>
+            <QueryProvider>{children}</QueryProvider>
+          </NextIntlClientProvider>
+        </SessionProvider>
       </body>
     </html>
   );
