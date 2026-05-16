@@ -22,8 +22,14 @@ function ProfileContent() {
     // Only redirect when CERTAIN the user is unauthenticated.
     // Avoid redirecting during 'loading' — session is null briefly
     // when the SessionProvider remounts after a locale change.
+    // We add a small delay to ensure the session has truly settled,
+    // because next-auth can briefly report 'unauthenticated' during
+    // client-side navigations (like locale switches).
     if (status === 'unauthenticated') {
-      router.push('/auth/signin');
+      const timer = setTimeout(() => {
+        router.push('/auth/signin');
+      }, 300);
+      return () => clearTimeout(timer);
     }
   }, [status, router]);
 

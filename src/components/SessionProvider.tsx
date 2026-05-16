@@ -7,5 +7,12 @@ export function SessionProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
+  // `refetchInterval` keeps the session alive across client-side navigations
+  // (e.g. locale switches) so the status never briefly drops to
+  // "unauthenticated" while the new page mounts.
+  return (
+    <NextAuthSessionProvider refetchInterval={5 * 60} refetchOnWindowFocus={true}>
+      {children}
+    </NextAuthSessionProvider>
+  );
 }

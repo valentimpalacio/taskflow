@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -33,34 +33,18 @@ function DashboardContent() {
   const [view, setView] = useState<ViewMode>('board');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
-  // ── All hooks MUST be called before any conditional returns ──────────────
-  // Moving useMemo hooks here prevents React Error #310 (hook count mismatch)
-  // that occurred when the locale changed and caused a re-render mid-lifecycle.
-  const filteredProjects = useMemo(() => {
-    if (selectedProjectId === 'all') {
-      return projects;
-    }
-    return projects.filter(project => project.id === selectedProjectId);
-  }, [projects, selectedProjectId]);
-
-  const allTasks = useMemo(() => {
-    return filteredProjects.flatMap(project =>
-      (project.tasks || []).map(task => ({
-        ...task,
-        projectName: project.name,
-        projectId: project.id
-      }))
-    );
-  }, [filteredProjects]);
-  // ────────────────────────────────────────────────────────────────────────
-
   useEffect(() => {
     // Only redirect when we are CERTAIN the user is not authenticated.
     // Never redirect during 'loading' — this avoids false redirects when
     // the SessionProvider remounts after a locale change.
-    // Note: router from @/i18n/navigation auto-prepends the locale prefix.
+    // We add a small delay to ensure the session has truly settled,
+    // because next-auth can briefly report 'unauthenticated' during
+    // client-side navigations (like locale switches).
     if (status === 'unauthenticated') {
-      router.push('/auth/signin');
+      const timer = setTimeout(() => {
+        router.push('/auth/signin');
+      }, 300);
+      return () => clearTimeout(timer);
     }
   }, [status, router]);
 
@@ -76,6 +60,23 @@ function DashboardContent() {
   const refreshData = () => {
     queryClient.invalidateQueries({ queryKey: ['projects'] });
   };
+
+  const filteredProjects = useMemo(() => {
+    if (selectedProjectId === 'all') {
+      return projects;
+    }
+    return projects.filter(project => project.id === selectedProjectId);
+  }, [projects, selectedProjectId]);
+
+  const allTasks = useMemo(() => {
+    return filteredProjects.flatMap(project => 
+      (project.tasks || []).map(task => ({
+        ...task,
+        projectName: project.name,
+        projectId: project.id
+      }))
+    );
+  }, [filteredProjects]);
 
   const handleAddDependency = async (dependentTaskId: string, blockingTaskId: string) => {
     try {
@@ -205,8 +206,8 @@ function DashboardContent() {
 
 export default function Dashboard() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
+    <ToastProvider>
       <DashboardContent />
-    </Suspense>
+    </ToastProvider>
   );
 }
