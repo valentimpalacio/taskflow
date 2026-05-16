@@ -14,7 +14,6 @@ import KanbanBoard from './dashboard/KanbanBoard';
 import AllTasks from './dashboard/AllTasks';
 import ProductivityChart from './dashboard/ProductivityChart';
 import GanttChartView from './dashboard/GanttChartView';
-import { ToastProvider } from './dashboard/Toast';
 import { useProjects } from '@/lib/hooks/useProjects';
 import { useQueryClient } from '@tanstack/react-query';
 import { useMemo } from 'react';
@@ -205,9 +204,5 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
-  return (
-    <ToastProvider>
-      <DashboardContent />
-    </ToastProvider>
-  );
+  return <DashboardContent />;
 }

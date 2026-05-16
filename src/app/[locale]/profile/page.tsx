@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import Header from '@/components/dashboard/Header';
-import { ToastProvider, useToast } from '@/components/dashboard/Toast';
+import { useToast } from '@/components/dashboard/Toast';
 import { User, Mail, Save, LogOut, CheckSquare } from 'lucide-react';
 
 function ProfileContent() {
@@ -168,9 +168,5 @@ function ProfileContent() {
 }
 
 export default function ProfilePage() {
-  return (
-    <ToastProvider>
-      <ProfileContent />
-    </ToastProvider>
-  );
+  return <ProfileContent />;
 }

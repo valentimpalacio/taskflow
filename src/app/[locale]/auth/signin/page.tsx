@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { signIn } from 'next-auth/react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
@@ -18,8 +18,7 @@ function SignInForm() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
-  const params = useParams();
-  const locale = (params?.locale as string) || 'pt';
+
 
   // Sync email from URL on mount (covers locale-switch navigation)
   useEffect(() => {
@@ -33,7 +32,7 @@ function SignInForm() {
     setError('');
     const result = await signIn('credentials', { email, password, redirect: false });
     if (result?.error) setError(t('invalidCredentials'));
-    else router.push(`/${locale}`);
+    else router.push('/');
     setLoading(false);
   };
 

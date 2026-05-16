@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from '@/i18n/navigation';
-import { useParams } from 'next/navigation';
+
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { CheckSquare, Mail, Lock, User, AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
@@ -18,8 +18,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
-  const params = useParams();
-  const locale = (params?.locale as string) || 'pt';
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
