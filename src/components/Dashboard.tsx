@@ -18,7 +18,7 @@ import { ToastProvider } from './dashboard/Toast';
 import { useProjects } from '@/lib/hooks/useProjects';
 import { useQueryClient } from '@tanstack/react-query';
 import { useMemo } from 'react';
-import { Search, Filter, X, LayoutGrid, List, Calendar } from 'lucide-react';
+import { LayoutGrid, List, Calendar } from 'lucide-react';
 
 type ViewMode = 'board' | 'list' | 'gantt';
 
@@ -31,7 +31,6 @@ function DashboardContent() {
   const queryClient = useQueryClient();
   const { data: projects = [], isLoading: loading } = useProjects({ enabled: status === 'authenticated' });
   const [view, setView] = useState<ViewMode>('board');
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
   // ── All hooks MUST be called before any conditional returns ──────────────

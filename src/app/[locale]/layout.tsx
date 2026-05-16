@@ -80,7 +80,7 @@ export default async function LocaleLayout({
     <html lang={validLocale}>
       <body>
         <SessionProvider>
-          <NextIntlClientProvider key={validLocale} locale={validLocale} messages={messages}>
+          <NextIntlClientProvider locale={validLocale} messages={messages}>
             <ToastProvider>
               <QueryProvider>{children}</QueryProvider>
             </ToastProvider>
