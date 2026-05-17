@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -14,10 +14,11 @@ import KanbanBoard from './dashboard/KanbanBoard';
 import AllTasks from './dashboard/AllTasks';
 import ProductivityChart from './dashboard/ProductivityChart';
 import GanttChartView from './dashboard/GanttChartView';
+import { ToastProvider } from './dashboard/Toast';
 import { useProjects } from '@/lib/hooks/useProjects';
 import { useQueryClient } from '@tanstack/react-query';
 import { useMemo } from 'react';
-import { LayoutGrid, List, Calendar } from 'lucide-react';
+import { Search, Filter, X, LayoutGrid, List, Calendar } from 'lucide-react';
 
 type ViewMode = 'board' | 'list' | 'gantt';
 
@@ -30,20 +31,16 @@ function DashboardContent() {
   const queryClient = useQueryClient();
   const { data: projects = [], isLoading: loading } = useProjects({ enabled: status === 'authenticated' });
   const [view, setView] = useState<ViewMode>('board');
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
   useEffect(() => {
     // Only redirect when we are CERTAIN the user is not authenticated.
     // Never redirect during 'loading' — this avoids false redirects when
     // the SessionProvider remounts after a locale change.
-    // We add a small delay to ensure the session has truly settled,
-    // because next-auth can briefly report 'unauthenticated' during
-    // client-side navigations (like locale switches).
+    // Note: router from @/i18n/navigation auto-prepends the locale prefix.
     if (status === 'unauthenticated') {
-      const timer = setTimeout(() => {
-        router.push('/auth/signin');
-      }, 300);
-      return () => clearTimeout(timer);
+      router.push('/auth/signin');
     }
   }, [status, router]);
 
@@ -204,5 +201,9 @@ function DashboardContent() {
 }
 
 export default function Dashboard() {
-  return <DashboardContent />;
+  return (
+    <ToastProvider>
+      <DashboardContent />
+    </ToastProvider>
+  );
 }
