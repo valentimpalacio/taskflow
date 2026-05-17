@@ -33,21 +33,7 @@ function DashboardContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/auth/signin');
-    }
-  }, [status, router]);
-
-  // Don't render anything until we know auth status
-  if (status === 'loading') {
-    return <div className="flex items-center justify-center h-screen">Loading...</div>;
-  }
-
-  if (status === 'unauthenticated') {
-    return null;
-  }
-
+  // All hooks must be called before any early returns (React Rules of Hooks)
   const refreshData = useCallback(() => {
     queryClient.invalidateQueries({ queryKey: ['projects'] });
   }, [queryClient]);
@@ -60,7 +46,7 @@ function DashboardContent() {
   }, [projects, selectedProjectId]);
 
   const allTasks = useMemo(() => {
-    return filteredProjects.flatMap(project => 
+    return filteredProjects.flatMap(project =>
       (project.tasks || []).map(task => ({
         ...task,
         projectName: project.name,
@@ -76,7 +62,7 @@ function DashboardContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dependentTaskId, blockingTaskId }),
       });
-      
+
       if (response.ok) {
         refreshData();
       }
@@ -90,7 +76,7 @@ function DashboardContent() {
       const response = await fetch(`/api/tasks/dependencies/${dependencyId}`, {
         method: 'DELETE',
       });
-      
+
       if (response.ok) {
         refreshData();
       }
@@ -102,10 +88,25 @@ function DashboardContent() {
   // Get available projects for TaskForm (excluding "all" option)
   const availableProjects = projects.filter(project => project.id !== 'all');
 
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/auth/signin');
+    }
+  }, [status, router]);
+
+  // Don't render anything until we know auth status
+  if (status === 'loading') {
+    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+  }
+
+  if (status === 'unauthenticated') {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {!loading && projects.length === 0 ? (
           <div className="text-center py-12">
@@ -124,8 +125,8 @@ function DashboardContent() {
                 <button
                   onClick={() => setView('board')}
                   className={`px-4 py-2 rounded-md flex items-center gap-2 ${
-                    view === 'board' 
-                      ? 'bg-blue-500 text-white' 
+                    view === 'board'
+                      ? 'bg-blue-500 text-white'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
@@ -135,8 +136,8 @@ function DashboardContent() {
                 <button
                   onClick={() => setView('list')}
                   className={`px-4 py-2 rounded-md flex items-center gap-2 ${
-                    view === 'list' 
-                      ? 'bg-blue-500 text-white' 
+                    view === 'list'
+                      ? 'bg-blue-500 text-white'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
@@ -146,8 +147,8 @@ function DashboardContent() {
                 <button
                   onClick={() => setView('gantt')}
                   className={`px-4 py-2 rounded-md flex items-center gap-2 ${
-                    view === 'gantt' 
-                      ? 'bg-blue-500 text-white' 
+                    view === 'gantt'
+                      ? 'bg-blue-500 text-white'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
@@ -155,31 +156,31 @@ function DashboardContent() {
                   {tc('gantt')}
                 </button>
               </div>
-              
+
               {selectedProjectId !== 'all' && availableProjects.length > 0 && (
-                <TaskForm 
-                  projects={availableProjects} 
-                  onCreated={refreshData} 
+                <TaskForm
+                  projects={availableProjects}
+                  onCreated={refreshData}
                 />
               )}
             </div>
 
             {view === 'board' && (
-              <KanbanBoard 
-                projects={filteredProjects} 
+              <KanbanBoard
+                projects={filteredProjects}
                 onRefresh={refreshData}
               />
             )}
-            
+
             {view === 'list' && (
-              <AllTasks 
-                projects={filteredProjects} 
+              <AllTasks
+                projects={filteredProjects}
                 onRefresh={refreshData}
               />
             )}
-            
+
             {view === 'gantt' && (
-              <GanttChartView 
+              <GanttChartView
                 tasks={allTasks}
                 onAddDependency={handleAddDependency}
                 onRemoveDependency={handleRemoveDependency}
