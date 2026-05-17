@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { languages, Language } from '@/i18n/config';
+import { languages, Language, defaultLanguage } from '@/i18n/config';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { SessionProvider } from '@/components/SessionProvider';
@@ -64,13 +64,18 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  let messages: Record<string, unknown>;
+  try {
+    messages = await getMessages();
+  } catch {
+    messages = (await import(`@/i18n/messages/${defaultLanguage}.json`)).default;
+  }
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <SessionProvider>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages} onError={(e) => console.error('[i18n]', e)}>
             <ToastProvider>
               <QueryProvider>{children}</QueryProvider>
             </ToastProvider>
