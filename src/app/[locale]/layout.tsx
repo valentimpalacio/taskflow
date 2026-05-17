@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { languages, Language, defaultLanguage } from '@/i18n/config';
+import { languages, Language } from '@/i18n/config';
 import { NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { SessionProvider } from '@/components/SessionProvider';
 import { ToastProvider } from '@/components/dashboard/Toast';
 import QueryProvider from '@/components/QueryProvider';
 
@@ -56,30 +57,26 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  console.log(`[layout] Rendering for locale segment: ${locale}`);
 
-  // Validate locale before anything else
   if (!languages.includes(locale as Language)) {
     notFound();
   }
 
   setRequestLocale(locale);
 
-  // Load messages directly from the JSON file — avoids any requestLocale
-  // timing issues that can occur when using getMessages() indirectly.
-  const validLocale = locale as Language;
-  let messages: Record<string, unknown>;
-  try {
-    messages = (await import(`@/i18n/messages/${validLocale}.json`)).default;
-  } catch {
-    messages = (await import(`@/i18n/messages/${defaultLanguage}.json`)).default;
-  }
+  const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider locale={validLocale} messages={messages}>
-      <ToastProvider>
-        <QueryProvider>{children}</QueryProvider>
-      </ToastProvider>
-    </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <SessionProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ToastProvider>
+              <QueryProvider>{children}</QueryProvider>
+            </ToastProvider>
+          </NextIntlClientProvider>
+        </SessionProvider>
+      </body>
+    </html>
   );
 }
