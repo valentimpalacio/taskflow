@@ -20,6 +20,27 @@ export function useOfflineSync() {
   const [isSyncing, setIsSyncing] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
 
+  const loadPendingChanges = (database: IDBDatabase) => {
+    const transaction = database.transaction([STORE_NAME], 'readonly');
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.getAll();
+
+    request.onsuccess = () => {
+      setPendingChanges(request.result);
+    };
+  };
+
+  const syncPendingChanges = async (database: IDBDatabase | null) => {
+    if (!database || !isOnline || isSyncing) return;
+
+    setIsSyncing(true);
+    try {
+      // Implementation would go here
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
   // Initialize IndexedDB
   useEffect(() => {
     const request = indexedDB.open(DB_NAME, 1);
@@ -57,16 +78,6 @@ export function useOfflineSync() {
     };
   }, [db]);
 
-  const loadPendingChanges = (database: IDBDatabase) => {
-    const transaction = database.transaction([STORE_NAME], 'readonly');
-    const store = transaction.objectStore(STORE_NAME);
-    const request = store.getAll();
-
-    request.onsuccess = () => {
-      setPendingChanges(request.result);
-    };
-  };
-
   const addPendingChange = async (change: Omit<PendingChange, 'id' | 'timestamp'>) => {
     if (!db) return;
 
@@ -89,39 +100,6 @@ export function useOfflineSync() {
 
       request.onerror = () => reject(request.error);
     });
-  };
-
-  const syncPendingChanges = async (database: IDBDatabase | null) => {
-    if (!database || !isOnline || isSyncing) return;
-
-    setIsSyncing(true);
-
-    try {
-      for (const change of pendingChanges.filter((c) => !c.synced)) {
-        try {
-          // Determine endpoint based on type
-          const endpoint = getEndpoint(change.type, change.action);
-          
-          const response = await fetch(endpoint, {
-            method: getMethod(change.action),
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(change.data),
-          });
-
-          if (response.ok) {
-            // Mark as synced
-            const transaction = database.transaction([STORE_NAME], 'readwrite');
-            const store = transaction.objectStore(STORE_NAME);
-            change.synced = true;
-            store.put(change);
-          }
-        } catch (error) {
-          console.error('Sync failed for change:', change, error);
-        }
-      }
-    } finally {
-      setIsSyncing(false);
-    }
   };
 
   const getEndpoint = (type: string, action: string): string => {

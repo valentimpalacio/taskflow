@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -17,7 +17,6 @@ import GanttChartView from './dashboard/GanttChartView';
 import { ToastProvider } from './dashboard/Toast';
 import { useProjects } from '@/lib/hooks/useProjects';
 import { useQueryClient } from '@tanstack/react-query';
-import { useMemo } from 'react';
 import { Search, Filter, X, LayoutGrid, List, Calendar } from 'lucide-react';
 
 type ViewMode = 'board' | 'list' | 'gantt';
@@ -35,10 +34,6 @@ function DashboardContent() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>('all');
 
   useEffect(() => {
-    // Only redirect when we are CERTAIN the user is not authenticated.
-    // Never redirect during 'loading' — this avoids false redirects when
-    // the SessionProvider remounts after a locale change.
-    // Note: router from @/i18n/navigation auto-prepends the locale prefix.
     if (status === 'unauthenticated') {
       router.push('/auth/signin');
     }
@@ -53,9 +48,9 @@ function DashboardContent() {
     return null;
   }
 
-  const refreshData = () => {
+  const refreshData = useCallback(() => {
     queryClient.invalidateQueries({ queryKey: ['projects'] });
-  };
+  }, [queryClient]);
 
   const filteredProjects = useMemo(() => {
     if (selectedProjectId === 'all') {
@@ -74,7 +69,7 @@ function DashboardContent() {
     );
   }, [filteredProjects]);
 
-  const handleAddDependency = async (dependentTaskId: string, blockingTaskId: string) => {
+  const handleAddDependency = useCallback(async (dependentTaskId: string, blockingTaskId: string) => {
     try {
       const response = await fetch('/api/tasks/dependencies', {
         method: 'POST',
@@ -88,9 +83,9 @@ function DashboardContent() {
     } catch (error) {
       console.error('Error adding dependency:', error);
     }
-  };
+  }, [refreshData]);
 
-  const handleRemoveDependency = async (dependencyId: string) => {
+  const handleRemoveDependency = useCallback(async (dependencyId: string) => {
     try {
       const response = await fetch(`/api/tasks/dependencies/${dependencyId}`, {
         method: 'DELETE',
@@ -102,7 +97,7 @@ function DashboardContent() {
     } catch (error) {
       console.error('Error removing dependency:', error);
     }
-  };
+  }, [refreshData]);
 
   // Get available projects for TaskForm (excluding "all" option)
   const availableProjects = projects.filter(project => project.id !== 'all');
