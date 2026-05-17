@@ -8,12 +8,6 @@ type LanguageSwitcherProps = {
   extraSearchParams?: Record<string, string>;
 };
 
-function getCurrentPathWithoutLocale(): string {
-  if (typeof window === 'undefined') return '/';
-  const match = window.location.pathname.match(/^\/(pt|en|es)(\/.*)?$/);
-  return match?.[2] || '/';
-}
-
 export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcherProps = {}) {
   const locale = useLocale();
 
@@ -25,18 +19,22 @@ export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcher
       return;
     }
 
-    const path = getCurrentPathWithoutLocale();
+    // Strip locale prefix from current pathname using window.location directly
+    // to avoid usePathname() returning paths with locale included
+    const currentPath = typeof window !== 'undefined'
+      ? window.location.pathname.replace(/^\/(pt|en|es)(\/.*)?$/, '$2') || '/'
+      : '/';
+
     const qs =
       extraSearchParams && Object.keys(extraSearchParams).length > 0
         ? `?${new URLSearchParams(extraSearchParams).toString()}`
         : '';
-    const newPath = `/${newLocale}${path}${qs}`;
 
     // Set cookie so middleware picks it up on the next request
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
 
     // Full page navigation to avoid client-side reconciliation issues
-    window.location.href = newPath;
+    window.location.href = `/${newLocale}${currentPath}${qs}`;
   };
 
   return (
