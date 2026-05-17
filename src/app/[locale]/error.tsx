@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, Component, type ReactNode } from 'react';
+import { useEffect, useState, Component, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 
 // Hardcoded fallback strings in case the i18n provider is broken.
@@ -123,21 +123,58 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    console.error('Error caught by boundary:', error.message, error.digest, error.stack);
   }, [error]);
 
-  // Extract locale from the pathname if available
   let locale: string | undefined;
   if (typeof window !== 'undefined') {
     const match = window.location.pathname.match(/^\/(pt|en|es)\b/);
     if (match) locale = match[1];
   }
 
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
     <I18nSafeBoundary
-      fallback={<ErrorUI {...FALLBACK} onReset={reset} />}
+      fallback={
+        <div>
+          <ErrorUI {...FALLBACK} onReset={reset} />
+          <div className="max-w-xl mx-auto mt-4 p-4 bg-red-50 dark:bg-red-950/30 rounded-xl border border-red-200 dark:border-red-800/30">
+            <button
+              onClick={() => setShowDetails(!showDetails)}
+              className="text-sm font-mono underline mb-2 text-red-600 dark:text-red-400"
+            >
+              {showDetails ? 'Ocultar detalhes' : 'Mostrar detalhes do erro'}
+            </button>
+            {showDetails && (
+              <pre className="text-xs text-red-700 dark:text-red-300 font-mono whitespace-pre-wrap overflow-auto max-h-96">
+                Message: {error.message}{'\n'}
+                Digest: {error.digest || 'N/A'}{'\n'}
+                Stack: {error.stack || 'N/A'}
+              </pre>
+            )}
+          </div>
+        </div>
+      }
     >
-      <TranslatedErrorUI onReset={reset} locale={locale} />
+      <>
+        <TranslatedErrorUI onReset={reset} locale={locale} />
+        <div className="fixed bottom-4 right-4 max-w-md p-4 bg-red-50 dark:bg-red-950/30 rounded-xl border border-red-200 dark:border-red-800/30 shadow-2xl z-50">
+          <button
+            onClick={() => setShowDetails(!showDetails)}
+            className="text-sm font-mono underline mb-2 text-red-600 dark:text-red-400"
+          >
+            {showDetails ? 'Ocultar' : 'Ver detalhes do erro'}
+          </button>
+          {showDetails && (
+            <pre className="text-xs text-red-700 dark:text-red-300 font-mono whitespace-pre-wrap overflow-auto max-h-60">
+              Message: {error.message}{'\n'}
+              Digest: {error.digest || 'N/A'}{'\n'}
+              Stack: {error.stack || 'N/A'}
+            </pre>
+          )}
+        </div>
+      </>
     </I18nSafeBoundary>
   );
 }

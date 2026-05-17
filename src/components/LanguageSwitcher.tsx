@@ -2,30 +2,41 @@
 
 import { useLocale } from 'next-intl';
 import { languages, languageNames, Language } from '@/i18n/config';
-import { usePathname } from '@/i18n/navigation';
 
 type LanguageSwitcherProps = {
   /** Preserved as query string when switching locale (e.g. email on sign-in). */
   extraSearchParams?: Record<string, string>;
 };
 
+function getCurrentPathWithoutLocale(): string {
+  if (typeof window === 'undefined') return '/';
+  const match = window.location.pathname.match(/^\/(pt|en|es)(\/.*)?$/);
+  return match?.[2] || '/';
+}
+
 export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcherProps = {}) {
   const locale = useLocale();
-  const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: string) => {
     if (newLocale === locale) return;
-    if (!languages.includes(newLocale as Language)) return;
 
+    if (!languages.includes(newLocale as Language)) {
+      console.error(`Invalid locale: ${newLocale}`);
+      return;
+    }
+
+    const path = getCurrentPathWithoutLocale();
     const qs =
       extraSearchParams && Object.keys(extraSearchParams).length > 0
         ? `?${new URLSearchParams(extraSearchParams).toString()}`
         : '';
+    const newPath = `/${newLocale}${path}${qs}`;
 
-    // Use full page navigation to avoid session race conditions during
-    // client-side locale transitions (prevents "Something went wrong!" error)
-    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;samesite=lax`;
-    window.location.href = `/${newLocale}${pathname}${qs}`;
+    // Set cookie so middleware picks it up on the next request
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;SameSite=Lax`;
+
+    // Full page navigation to avoid client-side reconciliation issues
+    window.location.href = newPath;
   };
 
   return (
