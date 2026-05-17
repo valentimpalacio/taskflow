@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { languages, languageNames, Language } from '@/i18n/config';
-import { useRouter as useIntlRouter, usePathname } from '@/i18n/navigation';
+import { usePathname } from '@/i18n/navigation';
 
 type LanguageSwitcherProps = {
   /** Preserved as query string when switching locale (e.g. email on sign-in). */
@@ -11,27 +11,21 @@ type LanguageSwitcherProps = {
 
 export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcherProps = {}) {
   const locale = useLocale();
-  const router = useIntlRouter();
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: string) => {
     if (newLocale === locale) return;
-    
-    // Validate that the locale is valid
-    if (!languages.includes(newLocale as Language)) {
-      console.error(`Invalid locale: ${newLocale}`);
-      return;
-    }
+    if (!languages.includes(newLocale as Language)) return;
 
-    try {
-      const qs =
-        extraSearchParams && Object.keys(extraSearchParams).length > 0
-          ? `?${new URLSearchParams(extraSearchParams).toString()}`
-          : '';
-      router.replace(`${pathname}${qs}`, { locale: newLocale as Language });
-    } catch (error) {
-      console.error(`Language switch failed from ${locale} to ${newLocale}:`, error);
-    }
+    const qs =
+      extraSearchParams && Object.keys(extraSearchParams).length > 0
+        ? `?${new URLSearchParams(extraSearchParams).toString()}`
+        : '';
+
+    // Use full page navigation to avoid session race conditions during
+    // client-side locale transitions (prevents "Something went wrong!" error)
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000;samesite=lax`;
+    window.location.href = `/${newLocale}${pathname}${qs}`;
   };
 
   return (

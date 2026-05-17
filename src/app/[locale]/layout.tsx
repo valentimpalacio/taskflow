@@ -75,7 +75,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <SessionProvider>
-          <NextIntlClientProvider locale={locale} messages={messages} onError={(e) => console.error('[i18n]', e)}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <ToastProvider>
               <QueryProvider>{children}</QueryProvider>
             </ToastProvider>
