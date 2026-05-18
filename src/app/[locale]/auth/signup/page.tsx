@@ -75,7 +75,8 @@ export default function SignUp() {
           </button>
         )}
         <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md p-1 rounded-xl border border-white/20 dark:border-slate-700/30 shadow-lg">
-        <LanguageSwitcher />
+          <LanguageSwitcher />
+        </div>
       </div>
 
       <div className="w-full max-w-md relative z-10 animate-fade-in-up">
