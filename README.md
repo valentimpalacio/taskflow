@@ -94,7 +94,7 @@
 
 <div align="center">
 
-| Analytics | Reports | Dark Mode |
+| Analytics | Reports | Light Mode |
 |-----------|---------|-----------|
 | ![Analytics](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/10-pt-analytics.png) | ![Reports](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/11-pt-reports.png) | ![Dark Mode](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/12-pt-dark-mode.png) |
 
