@@ -46,7 +46,7 @@ export default function LanguageSwitcher({ extraSearchParams }: LanguageSwitcher
           className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
             locale === lang
               ? 'bg-primary-600 text-white shadow-sm'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              : 'text-slate-600 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
           title={languageNames[lang]}
         >

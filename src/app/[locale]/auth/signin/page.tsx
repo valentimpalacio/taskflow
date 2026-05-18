@@ -83,7 +83,7 @@ function SignInForm() {
           <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-primary-500/30 pulse-glow">
             <CheckSquare className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
             {t('welcomeBack')}
           </h1>
           <p className="text-slate-500 dark:text-slate-400 mt-1.5">{t('signinSubtitle')}</p>
