@@ -24,7 +24,6 @@
 
 ---
 
-https://github.com/user-attachments/assets/demo-placeholder
 
 </div>
 
@@ -95,9 +94,9 @@ https://github.com/user-attachments/assets/demo-placeholder
 
 <div align="center">
 
-| Analytics | Reports | Light Mode |
+| Analytics | Reports | Dark Mode |
 |-----------|---------|-----------|
-| ![Analytics](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/10-pt-analytics.png) | ![Reports](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/11-pt-reports.png) | ![Light Mode](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/12-pt-dark-mode.png) |
+| ![Analytics](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/10-pt-analytics.png) | ![Reports](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/11-pt-reports.png) | ![Dark Mode](https://raw.githubusercontent.com/valentimpalacio/taskflow/main/screenshots/12-pt-dark-mode.png) |
 
 </div>
 
