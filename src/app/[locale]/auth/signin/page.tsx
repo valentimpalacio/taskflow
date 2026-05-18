@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { CheckSquare, Mail, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { CheckSquare, Mail, Lock, AlertCircle, Eye, EyeOff, Moon, Sun } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 function SignInForm() {
@@ -17,8 +17,25 @@ function SignInForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [dark, setDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    setMounted(true);
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setDark(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+  };
 
   // Sync email from URL on mount (covers locale-switch navigation)
   useEffect(() => {
@@ -46,8 +63,19 @@ function SignInForm() {
         <div className="absolute bottom-1/4 right-1/3 w-3 h-3 rounded-full bg-primary-400/20 dark:bg-primary-500/15 blur-sm particle-float-1" style={{ animationDelay: '1s' }} />
       </div>
 
-      <div className="absolute top-6 right-6 z-20 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md p-1 rounded-xl border border-white/20 dark:border-slate-700/30 shadow-lg">
-        <LanguageSwitcher extraSearchParams={email ? { email } : undefined} />
+      <div className="absolute top-6 right-6 z-20 flex items-center gap-2">
+        {mounted && (
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-slate-700/30 shadow-lg text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/60 transition-all"
+            aria-label="Toggle dark mode"
+          >
+            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+        )}
+        <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md p-1 rounded-xl border border-white/20 dark:border-slate-700/30 shadow-lg">
+          <LanguageSwitcher extraSearchParams={email ? { email } : undefined} />
+        </div>
       </div>
 
       <div className="w-full max-w-md relative z-10 animate-fade-in-up">

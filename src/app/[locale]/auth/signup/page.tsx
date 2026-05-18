@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from '@/i18n/navigation';
 
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { CheckSquare, Mail, Lock, User, AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
+import { CheckSquare, Mail, Lock, User, AlertCircle, CheckCircle, Eye, EyeOff, Moon, Sun } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function SignUp() {
@@ -17,8 +17,25 @@ export default function SignUp() {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [dark, setDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    setMounted(true);
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setDark(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +64,17 @@ export default function SignUp() {
         <div className="absolute top-1/4 right-1/4 w-4 h-4 rounded-full bg-emerald-400/30 dark:bg-emerald-500/20 blur-sm particle-float-3" />
       </div>
 
-      <div className="absolute top-6 right-6 z-20 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md p-1 rounded-xl border border-white/20 dark:border-slate-700/30 shadow-lg">
+      <div className="absolute top-6 right-6 z-20 flex items-center gap-2">
+        {mounted && (
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-slate-700/30 shadow-lg text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/60 transition-all"
+            aria-label="Toggle dark mode"
+          >
+            {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+        )}
+        <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md p-1 rounded-xl border border-white/20 dark:border-slate-700/30 shadow-lg">
         <LanguageSwitcher />
       </div>
 
