@@ -5,12 +5,14 @@
 coverage
 *.tsbuildinfo
 next-env.d.ts
-.env*.local
 .env
+.env*.local
+.env.production
+.env.vercel
+.env.development
+.neon
 .DS_Store
 npm-debug.log*
 dev.db
 dev.db-journal
-.vercel
-
 .vercel
