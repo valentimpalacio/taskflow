@@ -12,6 +12,10 @@ next-env.d.ts
 .env.development
 .neon
 .DS_Store
+.agents/
+.kilo/
+AGENTS.md
+skills-lock.json
 npm-debug.log*
 dev.db
 dev.db-journal
